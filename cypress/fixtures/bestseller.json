@@ -1,0 +1,59 @@
+[{
+    "name" : "ชุดเม้าส์คีย์บอร์ด",
+    "barcode" : "272882050",
+    "price" : 890,
+    "discount" : 13,
+    "discountPrice" : 770,
+    "getAMB" : true,
+    "miniDescription" : [],
+    "description" : {
+        "tableDetails" : [
+            "คละสี",
+            "(กxยxส) 5x45.2x12.2 ซม.",
+            "1.18กก."
+        ],
+        "detail" : [
+            "- Windows XP, Windows Vista or Windows 7, Windows 8",
+            "- USB port",
+            "- รับประกันฮาร์ดแวร์ 3 ปี",
+            "- Keyboard (K220)",
+            "- Mouse (M150)",
+            "- USB receiver",
+            "- 2 AAA (keyboard) and 2 AA (mouse) batteries",
+            "- User documentation"
+        ]
+    },
+    "type" : "",
+    "category" : ""
+},{
+    "name" : "นมเปรี้ยวดีไลท์ ขวด 160",
+    "barcode" : "805847010",
+    "price" : 10,
+    "discount" : 0,
+    "discountPrice" : 0,
+    "getAMB" : true,
+    "miniDescription" : [],
+    "description" : {
+        "tableDetails" : [],
+        "detail" : []
+    },
+    "type" : "",
+    "category" : ""
+},{
+    "name" : "R-Cool ที่นอน รุ่น DESTINY",
+    "barcode" : "106496010",
+    "price" : 71900,
+    "discount" : 50,
+    "discountPrice" : 35900,
+    "getAMB" : true,
+    "miniDescription" : ["ที่นอน R-Cool รุ่น DESTINY (3.5 ฟุต)Memory Foam แท้ 100% วัตถุดิบนำเข้าจากประเทศเยอรมัน แถมฟรี! Curve Pillow Medium 1 ใบ"],
+    "description" : {
+        "tableDetails" : [],
+        "detail" : [
+            "\"สำหรับออเดอร์ที่ลูกค้าทำการสั่งซื้อหลังวันที่ 10 เมษายน 2562 จะได้รับสินค้าวันที่ 19 เมษายน 2562 เป็นต้นไป\"",
+            "ขนาดสินค้า : 6 ฟุต / 5 ฟุต / 3.5 ฟุต"
+        ]
+    },
+    "type" : "",
+    "category" : ""
+}]

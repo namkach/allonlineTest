@@ -1,0 +1,82 @@
+[{
+    "name" : "เครื่องปั่นอาหาร Princess รุ่นเปียโน 10 สปีด",
+    "barcode" : "116645010",
+    "price" : 3090,
+    "discount" : 97,
+    "discountPrice" : 100,
+    "getAMB" : false,
+    "miniDescription" : ["ปรับความเร็วได้ถึง 10 ระดับ พร้อมไฟ LED แสดงการทำงาน"],
+    "description" : {
+        "tableDetails" : [
+            "6 วัตต์",
+            "ขาว",
+            "(กxยxส) 18x18x38 ซม.",
+            "2.25กก."
+        ],
+        "detail" : [
+            "โถแก้ว 1.5 ลิตร"
+        ]
+    },
+    "type" : "",
+    "category" : ""
+},{
+    "name" : "Polo Travel Club กระเป๋าเดินทาง รุ่น HKAS296 Size 28นิ้ว",
+    "barcode" : "105873040",
+    "price" : 8222 ,
+    "discount" : 99,
+    "discountPrice" : 100,
+    "getAMB" : false,
+    "miniDescription" : [
+        "วัสดุ ABS 100%",
+        "กุญแจ TSA LOCK",
+        "ล้อหมุน 360 องศา"
+    ],
+    "description" : {
+        "tableDetails" : [
+            "TSA",
+            "ทั้งผู้ชายและผู้หญิง",
+            "ทอง",
+            "(กxยxส) 73x31x52 ซม.",
+            "4 กก."
+        ],
+        "detail" : [
+            "- กระเป๋าคุณภาพเยี่ยมที่ลงตัวด้วยรูปลักษณ์ ขนาดน่าใช้",
+            "- บรรจุสิ่งของได้อย่างจุใจ ให้คุณพกติดตัวไปได้ทุกที่",            
+            "- ตอบสนองความต้องการในทุกรูปแบบ",            
+            "- วัสดุ ABS 100% พร้อมกุญแจ TSA LOCK",            
+            "- ล้อหมุน 360 องศา คันชัก อลูมิเนียม"
+        ]
+    },
+    "type" : "",
+    "category" : ""
+},{
+    "name" : "blackOut รองเท้าแตะ รุ่น BO-1002 สีน้ำตาล",
+    "barcode" : "885495010",
+    "price" : 249,
+    "discount" : 60,
+    "discountPrice" : 100,
+    "getAMB" : false,
+    "miniDescription" : [
+        "Selling Point",
+        "Selling Point",
+        "Selling Point",
+        "Selling Point",
+        "Selling Point"
+    ],
+    "description" : {
+        "tableDetails" : [
+            "ทั้งผู้ชายและผู้หญิง",
+            "เหลือง",
+            "(กxยxส) 21x30x10 ซม.",
+            "0.25กก."
+        ],
+        "detail" : [
+            "รองเท้าสำหรับวันสบายๆ สายพันธุ์ใหม่จาก blackOut รองเท้าผลิตจากวัตถุดิบ Polyvinyl chloride(PVC) Grade Premium",
+            "สามารถออกแบบสีหูแลพื้นเองได้ จึงทำให้ดีไซน์ของพื้นรองเท้าที่มีเอกลักษณ์เฉพาะตัว",
+            "blackOut เป็นรองเท้าที่มีเอกลักษณ์ในเรื่องของสีสัน และคุณสมบัติพิเศษกันลื่น",
+            "พร้อมกับความเบาสบายให้คุณเป็นเจ้าของได้แล้ว"
+        ]
+    },
+    "type" : "",
+    "category" : ""
+}]

@@ -1,0 +1,164 @@
+[{
+    "customerDetails" : {
+      "customerName" : "อลิสรา ขจรวิทยา",
+      "customerPhone" : "0649343565"
+    }, 
+    "storeDetails" : {
+      "storeId" : "10888",
+      "storeName" : "เสรีไทย 30",
+      "storeAddress" : "เลขที่  ถ.เสรีไทย, 2/1, แขวงรามอินทรา เขตคันนายาว กรุงเทพฯ 10230"
+    },
+    "addressType" : "store-number",
+    "shippingType" : "รับที่เซเว่นอีเลฟเว่น",
+    "shippingFee" : 0,
+    "taxInvoiceDetails" : {
+        "useTaxInvoice" : "Y",
+        "taxType" : "Company",
+        "companyType" : "HeadOffice",
+        "cardId" : "1234567890123",
+        "name" : "อลิสรา ขจรวิทยา",
+        "phoneNo" : "0649343565",
+        "addressNo" : "7/11",
+        "floor" : "12",
+        "moo" : "7",
+        "soi" : "11",
+        "street" : "ลาดพร้าว",
+        "province" : "กรุงเทพมหานคร",
+        "district" : "วังทองหลาง",
+        "subDistrict" : "พลับพลา",
+        "postalCode" : "10310"
+    },
+    "paymentDetails" : {
+      "paymentType" : "PAYATALL_CS"
+    },   
+    "products" : [{
+        "productName" : "สิงห์ น้ำดื่ม 1500 มิลลิลิตร แพ็ค6ขวด",
+        "barcode" : "104729010",
+        "amount" : 1, 
+        "price" : 94
+      },{
+        "productName" : "Blackmores Lecithin 1200 ผลิตภัณฑ์เสริมอาหาร บรรจุ 100 แคปซูล",
+        "barcode" : "293317030",
+        "amount" : 2, 
+        "price" : 299
+      }]
+  },{
+    "customerDetails" : {
+      "customerName" : "อลิสรา ขจรวิทยา",
+      "customerPhone" : "0649343565"
+    }, 
+    "storeDetails" : {
+      "storeId" : "10888",
+      "storeName" : "เสรีไทย 30",
+      "storeAddress" : "เลขที่  ถ.เสรีไทย, 2/1, แขวงรามอินทรา เขตคันนายาว กรุงเทพฯ 10230"
+    },
+    "addressType" : "store-number",
+    "shippingType" : "รับที่เซเว่นอีเลฟเว่น",
+    "shippingFee" : 0,
+    "taxInvoiceDetails" : {
+        "useTaxInvoice" : "Y",
+        "taxType" : "Company",
+        "companyType" : "Branch",
+        "branchId" : "10888",
+        "cardId" : "1234567890123",
+        "name" : "อลิสรา ขจรวิทยา",
+        "phoneNo" : "0649343565",
+        "addressNo" : "7/11",
+        "floor" : "12",
+        "moo" : "7",
+        "soi" : "11",
+        "street" : "ลาดพร้าว",
+        "province" : "กรุงเทพมหานคร",
+        "district" : "วังทองหลาง",
+        "subDistrict" : "พลับพลา",
+        "postalCode" : "10310"
+    },
+    "paymentDetails" : {
+      "paymentType" : "PAYATALL_CS"
+    }, 
+    "products" : [{
+        "productName" : "สิงห์ น้ำดื่ม 1500 มิลลิลิตร แพ็ค6ขวด",
+        "barcode" : "104729010",
+        "amount" : 1, 
+        "price" : 94
+      },{
+        "productName" : "Blackmores Lecithin 1200 ผลิตภัณฑ์เสริมอาหาร บรรจุ 100 แคปซูล",
+        "barcode" : "293317030",
+        "amount" : 2, 
+        "price" : 299
+      }]
+  },{
+    "customerDetails" : {
+      "customerName" : "อลิสรา ขจรวิทยา",
+      "customerPhone" : "0649343565"
+    }, 
+    "storeDetails" : {
+      "storeId" : "10888",
+      "storeName" : "เสรีไทย 30",
+      "storeAddress" : "เลขที่  ถ.เสรีไทย, 2/1, แขวงรามอินทรา เขตคันนายาว กรุงเทพฯ 10230"
+    },
+    "addressType" : "store-number",
+    "shippingType" : "รับที่เซเว่นอีเลฟเว่น",
+    "shippingFee" : 0,
+    "taxInvoiceDetails" : {
+        "useTaxInvoice" : "Y",
+        "taxType" : "Person",
+        "cardId" : "1234567890123",
+        "name" : "อลิสรา ขจรวิทยา",
+        "phoneNo" : "0649343565",
+        "addressNo" : "7/11",
+        "floor" : "12",
+        "moo" : "7",
+        "soi" : "11",
+        "street" : "ลาดพร้าว",
+        "province" : "กรุงเทพมหานคร",
+        "district" : "วังทองหลาง",
+        "subDistrict" : "พลับพลา",
+        "postalCode" : "10310"
+    },
+    "paymentDetails" : {
+      "paymentType" : "PAYATALL_CS"
+    },   
+    "products" : [{
+        "productName" : "สิงห์ น้ำดื่ม 1500 มิลลิลิตร แพ็ค6ขวด",
+        "barcode" : "104729010",
+        "amount" : 1, 
+        "price" : 94
+      },{
+        "productName" : "Blackmores Lecithin 1200 ผลิตภัณฑ์เสริมอาหาร บรรจุ 100 แคปซูล",
+        "barcode" : "293317030",
+        "amount" : 2, 
+        "price" : 299
+      }]
+  },{
+    "customerDetails" : {
+      "customerName" : "อลิสรา ขจรวิทยา",
+      "customerPhone" : "0649343565"
+    }, 
+    "storeDetails" : {
+      "storeId" : "10888",
+      "storeName" : "เสรีไทย 30",
+      "storeAddress" : "เลขที่  ถ.เสรีไทย, 2/1, แขวงรามอินทรา เขตคันนายาว กรุงเทพฯ 10230"
+    },
+    "addressType" : "store-number",
+    "shippingType" : "รับที่เซเว่นอีเลฟเว่น",
+    "shippingFee" : 0,
+    "taxInvoiceDetails" : {
+        "useTaxInvoice" : "N"
+    },
+    "paymentDetails" : {
+      "paymentType" : "PAYATALL_CS"
+    }, 
+    "products" : [{
+        "productName" : "สิงห์ น้ำดื่ม 1500 มิลลิลิตร แพ็ค6ขวด",
+        "barcode" : "104729010",
+        "amount" : 1, 
+        "price" : 94
+      },{
+        "productName" : "Blackmores Lecithin 1200 ผลิตภัณฑ์เสริมอาหาร บรรจุ 100 แคปซูล",
+        "barcode" : "293317030",
+        "amount" : 2, 
+        "price" : 299
+      }]
+  }
+  ]

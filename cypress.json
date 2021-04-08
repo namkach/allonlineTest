@@ -1,1 +1,18 @@
-{}
+{
+  "baseUrl": "https://integ1.allonline.7eleven.co.th/",
+  "chromeWebSecurity": false,
+  "viewportWidth": 1366,
+  "viewportHeight": 768,
+  "defaultCommandTimeout": 30000,
+  "reporter": "mochawesome",
+  "reporterOptions": {
+    "reportDir": "cypress/reports",
+    "reportFilename": "report",
+    "overwrite": true,
+    "reportTitle": "Report Test",
+    "html": true,
+    "json": true,
+    "charts": true
+  },
+  "projectId": "y182ry"
+}

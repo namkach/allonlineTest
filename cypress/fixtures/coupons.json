@@ -1,0 +1,57 @@
+[{
+    "code" : "CASIO4",
+    "type" : "percentage",
+    "benefit" : "",
+    "description" : "[UAT]E-Coupon : ซื้อสินค้า Casio รับ100คะแนน กรอกโค๊ด CASIO4 เมื่อซื้อสินค้าครบ 1000 บาทขึ้นไป",
+    "expire" : "01-12-2021",
+    "category" : ""
+},{
+    "code" : "CASIO1B2",
+    "type" : "percentage",
+    "benefit" : "",
+    "description" : "[UAT]E-Coupon : ซื้อสินค้า Casio รับ200คะแนน กรอกโค๊ด CASIO1B2 เมื่อซื้อสินค้าครบ 1000 บาทขึ้นไป",
+    "expire" : "01-12-2021",
+    "category" : ""
+},{
+    "code" : "TMWROBOT09",
+    "type" : "free-item",
+    "benefit" : "รับของแถม",
+    "description" : "[UAT]E-Coupon : หุ่นยนต์ดูดฝุ่น กรอกโค๊ด TMWROBOT09 รับของแถมฟรี",
+    "expire" : "01-12-2021",
+    "category" : ""
+},{
+    "code" : "TMWROBOTFREE",
+    "type" : "free-shipping",
+    "benefit" : "ส่งฟรี",
+    "description" : "[UAT]E-Coupon : หุ่นยนต์ดูดฝุ่น กรอกโค๊ด TMWROBOTFREE ส่งฟรี",
+    "expire" : "01-12-2021",
+    "category" : ""
+},{
+    "code" : "PIM500",
+    "type" : "active",
+    "benefit" : "500",
+    "description" : "ซื้อครบ 9,000 บาท กรอก PIM500 รับส่วนลด 100 บาท  รับ All member Point 500 แต้ม",
+    "expire" : "",
+    "category" : "UNRESTRICTED_7online"
+},{
+    "code" : "Super2",
+    "type" : "percentage",
+    "benefit" : "20",
+    "description" : "เมื่อซื้อสินค้าแว่นกันแดด Super รุ่น 498 Basic Mat Resin หรือ แว่นกันแดด Super รุ่น 359 People Classic เมื่อกรอกโค๊ด Super2 ลด20% (430291010,430043010",
+    "expire" : "01-12-2021",
+    "category" : ""
+},{
+    "code" : "Dis60UN",
+    "type" : "percentage",
+    "benefit" : "",
+    "description" : "ALM/7Card ซื้อสินค้าครบ 3000 บาท รับ 100 แต้ม",
+    "expire" : "31-05-2021",
+    "category" : "UNRESTRICTED_7online"
+},{
+    "code" : "AOL04",
+    "type" : "active",
+    "benefit" : "90",
+    "description" : "ลด 90 บาท/ตะกร้า เมื่อซื้อสินค้าหมวดเครื่องดื่ม ที่ร่วมรายการครบ 400 บาท ขึ้นไป",
+    "expire" : "30-04-2021",
+    "category" : ""
+}]
