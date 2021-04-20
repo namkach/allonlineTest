@@ -1,8 +1,8 @@
 [{
-    "code" : "VAL55",
-    "type" : "active",
-    "benefit" : "55",
-    "description" : "ลด 55 บาท/ตะกร้า เมื่อซื้อสินค้า Brand วาสลีน ขั้นต่ำ 250 บาท",
+    "code" : "HBD300",
+    "type" : "free-item",
+    "benefit" : "รับของแถม",
+    "description" : "All member เกิดเดือน April เมื่อซื้อครบ 300 บาท และ กรอกโค๊ด HBD300 รับฟรีสินค้า A",
     "expire" : "",
     "category" : ""
 }]

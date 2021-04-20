@@ -43,7 +43,6 @@ Cypress.Commands.add('clearBasket', () => {
     cy.get('.all-detail-cart-product').then(() => { 
         var num = Cypress.$('.all-detail-cart-product')
         for (let i = 1; i <= num.length; i++) {
-            cy.log('i = ' + i)
             cy.wait(1000)
             cy.get('.format-fav-rem > .remove').first()
                 .click({force : true})
@@ -162,7 +161,7 @@ Cypress.Commands.add('verifyShipping', (deliveryType, addrType, customerDetails,
                     })
                     .click()
             }
-            cy.log('addrType : ' + addrType)
+            
             switch(addrType) {
                 case 'addAddr' : 
                     cy.get('.address-dropdown')
@@ -192,7 +191,6 @@ Cypress.Commands.add('verifyShipping', (deliveryType, addrType, customerDetails,
                         .click()
                     cy.get('.address-dropdown')
                         .should('have.class', 'open')
-                    cy.log('address : ' + address)
                     cy.get('ul.dropdown-menu > li.address').contains(address)
                         .click()
                     cy.get('.address-dropdown')
@@ -220,21 +218,15 @@ Cypress.Commands.add('verifyShipping', (deliveryType, addrType, customerDetails,
 
 Cypress.Commands.add('verifyOrder', (productName, productBarcode, productList, isSplit, haveSplitOrder) => {
     var index = productList - 1
-    cy.log('isSplit : ' + isSplit)
-    cy.log('productList : ' + productList)
-    cy.log('productName : ' + productName)
+    
     if (haveSplitOrder) {
         if (isSplit == 'N') {
-            cy.log('haveSplitOrder : ' + haveSplitOrder)
-            cy.log('isSplit : ' + isSplit)
             cy.get('.basket-positions-combined-store > .items > .item').eq(index).should(($product) => {
                 expect($product).to.contain('รายการที่ #' + productList)
                 expect($product).to.contain(productName)
                 expect($product).to.contain('โค้ด:' + productBarcode)
             })
         } else {
-            cy.log('haveSplitOrder : ' + haveSplitOrder)
-            cy.log('isSplit : ' + isSplit)
             cy.get('.basket-positions-combined-home > .items > .item').eq(index).should(($product) => {
                 expect($product).to.contain('รายการที่ #' + productList)
                 expect($product).to.contain(productName)
@@ -242,7 +234,6 @@ Cypress.Commands.add('verifyOrder', (productName, productBarcode, productList, i
             })
         } 
     } else {
-        cy.log('haveSplitOrder : ' + haveSplitOrder)
             cy.get('.basket-positions-all > .items > .item').eq(index).should(($product) => {
                 expect($product).to.contain('รายการที่ #' + productList)
                 expect($product).to.contain(productName)
@@ -336,12 +327,9 @@ Cypress.Commands.add('typePromotion', (promotionDetails) => {
                 .should('contain', 'เลือกจาก My coupon')
                 .click()
                 .should('not.have.css', 'display', 'none')
-            cy.log('promotionDetails.id : ' + promotionDetails.id)
-
 
             cy.get('.select-radio-voucher')
                 .check(promotionDetails.code, {force: true})
-
 
             // cy.get('input.select-radio-voucher[value="' + promotionDetails.id + '"]')
             //     .invoke('index').then((i) => {
@@ -401,7 +389,6 @@ Cypress.Commands.add('verifyTotalPrice', (sum, shippingFee, totalPrice, amb, mst
     var indexPrice = 1
     var indexPoint = 0
 
-    cy.log('ambbbbb : ' + amb)
     cy.get('.price')
         .should('contain', sum)
 
@@ -769,16 +756,12 @@ Cypress.Commands.add('fillTaxInvoice', (taxInvoice) => {
 
 Cypress.Commands.add('findCoupon', (code, iscated, haveCoupon = 'Y') => {
     var isFound = false
-    cy.log('codeeeeeee : ' + code)
     cy.get('.code').then(($ele) => {
-        cy.log('code : ' + code)
-        cy.log('$ele.length : ' + $ele.length)
         for (let i = 0; i < $ele.length; i++) {
             if (iscated && !haveCoupon) {
                 expect($ele.eq(i)).not.to.contain(code)
             } else if ($ele.eq(i).text().includes(code)){
                 isFound = true
-                cy.log('FOUND! : ' + $ele.eq(i).text())
                 break;
             }            
         }
@@ -789,7 +772,6 @@ Cypress.Commands.add('findCoupon', (code, iscated, haveCoupon = 'Y') => {
                     .invoke('attr', 'class')
                     .then(($att) => {
                         const att = $att
-                        cy.log('att : ' + att)
                         if (!att.includes('disable')) {
                             cy.get('.next.paging-number')
                                 .click({force : true})
@@ -812,7 +794,6 @@ Cypress.Commands.add('checkCoupon', (coupon) => {
             .invoke('attr', 'class')
             .then(($attr) => {
                 const attr = $attr
-                cy.log('att : ' + attr)
                 if (attr.includes('redeemed')) {
                     cy.wrap($ele).then(($coupon) => {
                         expect($coupon).to.have.class('redeemed')
@@ -852,7 +833,6 @@ Cypress.Commands.add('getCoupon', (code) => {
             .invoke('attr', 'class')
             .then(($attr) => {
                 const attr = $attr
-                cy.log('att : ' + attr)
                 if (!attr.includes('redeemed')) {
                     cy.wrap($coupon)
                         .parents('.single-voucher')
@@ -871,26 +851,23 @@ Cypress.Commands.add('getCoupon', (code) => {
 // --------------------- || page || -------------------------------
 Cypress.Commands.add('findProduct', (product, testType, type, haveNextPage) => {
     var isFound = false  
-    cy.log('haveNextPage : ' + haveNextPage)
+
     if (haveNextPage) {
         cy.get('.item.description').then(($product) => {
             cy.log('product length : ' + $product.length)
             for (let i = 0; i < $product.length; i++) {
                 if ($product.eq(i).text().includes(product.name)){
                     isFound = true
-                    cy.log('FOUND! : ' + $product.eq(i).text())
                     break;
                 }         
             }
         
-            cy.log('isFound : ' + isFound)
             if(!isFound) {
                 cy.get('.hidden-print > .pagination.list-pager > .next').then(($ele) => {
                     cy.wrap($ele)
                         .invoke('attr', 'class')
                         .then(($att) => {
                             const att = $att
-                            cy.log('attribute : ' + att)
                             if (!att.includes('disable')) {
                                 cy.wrap($ele)
                                     .children('.glyphicon-arrow-right')
@@ -906,7 +883,6 @@ Cypress.Commands.add('findProduct', (product, testType, type, haveNextPage) => {
         })
     }
 
-    cy.log('heyheyhey')
     cy.get('.product_grid').contains(product.name)
         .parents('.product-item')
         .then(($product) => {
@@ -963,16 +939,17 @@ Cypress.Commands.add('findProduct', (product, testType, type, haveNextPage) => {
 })
 
 Cypress.Commands.add('selectProduct', (product, length, index = 0) => {
+    const click = $el => $el.click()
     var isFound = false
-    cy.log
     cy.get('.product_grid > .product-item').then(($products) => {
         cy.wrap($products).eq(index)
             .find('a.productlink > .item.description')
             .then(($product) => {
-                cy.log('@index  ' + index + '  ---- product name : ' + $product.text())
                 if($product.text().includes(product.name)) {
                     cy.wrap($product)
+                        // .pipe(click)
                         .click({force : true})
+                        .wait(1000)
                     cy.title().should('eq', product.name + ' | AllOnline')
                     isFound = true
                 }
@@ -984,8 +961,6 @@ Cypress.Commands.add('selectProduct', (product, length, index = 0) => {
                     } else {
                         cy.selectProduct(product, length, index)
                     }
-                } else {
-                    cy.log('isFound  isssssss :   ' + isFound)
                 }
             })        
     })
@@ -1017,7 +992,11 @@ Cypress.Commands.add('checkProductDetail', (product, type, testType) => {
     if (product.discountPrice <= 0) {
         cy.get('.price > .currentPrice')
             .should('contain', '฿ ' + formatNumber(product.price))
-    } else {
+    } else if (product.rangePrice.isRange && Cypress.$('.price > .currentPriceOverAll').length > 0) {
+        cy.get('.price > .currentPriceOverAll')
+            .should('contain', '฿ ' + product.rangePrice.price)
+    } 
+    else {
         cy.get('.price > .currentPrice')
             .should('contain', '฿ ' + formatNumber(product.discountPrice))
         cy.get('.price > strike')
@@ -1040,8 +1019,7 @@ Cypress.Commands.add('checkProductDetail', (product, type, testType) => {
             .should('contain', 'สินค้านี้ไม่ร่วมโปรโมชั่น ALL member')
     }
 
-    var miniDesc = product.miniDescription
-    length = miniDesc.length || 0
+    length = product.miniDescription.length || 0
     if (length > 0) {
         index = 0
         product.miniDescription.forEach((miniDesc) => {
@@ -1050,61 +1028,60 @@ Cypress.Commands.add('checkProductDetail', (product, type, testType) => {
                     if (miniDesc.includes('"')) {
                         var text = miniDesc.split('"')
                         for (let j = 0; j < text.length; j++) {
-                            expect($detail).to.contain(text[j])
+                            expect($detail.text().replace(/\s/g, '')).to.contain(text[j].replace(/\s/g, ''))
                         }
                     } else {
-                        expect($detail).to.contain(miniDesc)
+                        expect($detail.text().replace(/\s/g, '')).to.contain(miniDesc.replace(/\s/g, ''))
                     }
                 })
                 index++ 
         })
+    } else {
+        cy.get('.enable-true > ul')
+            .should('not.exist')
     }
 
-    index = 0
-    product.description.tableDetails.forEach((detail) => {
-        cy.get('.markup_features_tab > tbody > tr').eq(index)
-            .children('td').last()
-            .then(($detail) => {
-                if (detail.includes('"')) {
-                    var text = detail.split('"')
-                    for (let j = 0; j < text.length; j++) {
-                        expect($detail).to.contain(text[j])
+    length = product.description.tableDetails.length || 0
+    if (length > 0) {
+        index = 0
+        product.description.tableDetails.forEach((detail) => {
+            cy.get('.markup_features_tab > tbody > tr').eq(index)
+                .children('td').last()
+                .then(($detail) => {
+                    if (detail.includes('"')) {
+                        var text = detail.split('"')
+                        for (let j = 0; j < text.length; j++) {
+                            expect($detail.text().replace(/\s/g, '')).to.contain(text[j].replace(/\s/g, ''))
+                        }
+                    } else {
+                        expect($detail.text().replace(/\s/g, '')).to.contain(detail.replace(/\s/g, ''))
                     }
-                } else {
-                    expect($detail).to.contain(detail)
-                }
-            })
-        index++
-    });
-
-    var desc = product.description.detail
-    length = desc.length || 0
-    cy.get('span[itemprop="description"]').then(($desc) => {
-        for (let i = 0; i < length; i++) {
-            if (desc[i].includes('"')) {
-                var text = desc[i].split('"')
-                for (let j = 0; j < text.length; j++) {
-                    expect($desc).to.contain(text[j])
-                }
-            } else {
-                expect($desc).to.contain(desc[i])
-            }
-        }
-    })
-
-    index = 0
-    product.description.detail.forEach((desc) => {
-        cy.get('span[itemprop="description"]').then(($desc) => {
-                if (desc.includes('"')) {
-                    var text = desc.split('"')
-                    for (let j = 0; j < text.length; j++) {
-                        expect($desc).to.contain(text[j])
-                    }
-                } else {
-                    expect($desc).to.contain(desc)
-                }
+                })
+            index++
         })
-    })
+    } else {
+        cy.get('.markup_features_tab > tbody')
+            .should('not.exist')
+    }
+
+    length = product.description.detail.length || 0
+    if (length > 0) {
+        product.description.detail.forEach((desc) => {
+            cy.get('span[itemprop="description"]').then(($desc) => {
+                    if (desc.includes('"')) {
+                        var text = desc.split('"')
+                        for (let j = 0; j < text.length; j++) {
+                            expect($desc.text().replace(/\s/g, '')).to.contain(text[j].replace(/\s/g, ''))
+                        }
+                    } else {
+                        expect($desc.text().replace(/\s/g, '')).to.contain(desc.replace(/\s/g, ''))
+                    }
+            })
+        })
+    } else {
+        cy.get('span[itemprop="description"]')
+            .should('not.exist')
+    }
 })
 
 // --------------------- || wish list || -------------------------------
@@ -1113,7 +1090,6 @@ Cypress.Commands.add('clearWishList', () => {
     if (Cypress.$('.row.item').length > 0) {
         cy.get('.row.item').then(($product) => {
             var length = $product.length
-            cy.log('length : ' + length)
     
             for (let i = 0; i < length; i++) {
                 cy.get('a.remove').first()

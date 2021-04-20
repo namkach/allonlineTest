@@ -4,6 +4,9 @@
     "price" : 1790,
     "discount" : 22,
     "discountPrice" : 1390,
+    "rangePrice" : {
+        "isRange" : false
+    },
     "getAMB" : true,
     "miniDescription" : [
         "ง่ายต่อการใช้งาน",
@@ -28,9 +31,13 @@
     "category" : ""
 },{
     "name" : "ฝาครอบเครื่องย่างไส้กรอก WYOTT รุ่น HRS-31",
+    "barcode" : "116259010",
     "price" : 3900,
     "discount" : 64,
     "discountPrice" : 1400,
+    "rangePrice" : {
+        "isRange" : false
+    },
     "getAMB" : true,
     "miniDescription" : [
         "*สินค้าไม่ร่วมคูปองส่วนลด และโปรโมชั่นใดๆ ทั้งสิ้น"
@@ -46,6 +53,6 @@
             "ขนาด (กxยxส): 90x250x200 มม. น้ำหนัก : 2.8 กก. ประเทศผู้ผลิต: อเมริกา"
         ]
     },
-    "type" : "pre-order",
+    "type" : "",
     "category" : ""
 }]

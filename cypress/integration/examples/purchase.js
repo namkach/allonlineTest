@@ -13,9 +13,7 @@ describe('Login page', () => {
     beforeEach('Login', function() {
         cy.visit('https://integ1.allonline.7eleven.co.th/')
         cy.title().should('eq', '7Online') 
-        window.localStorage.clear()   
         cy.login(loginUsername, loginPassword, username)
-        Cypress.Cookies.preserveOnce('JSESSIONID','i.u.v2','_gid','__utmc','_ga')
     })
 
     afterEach('Logout', function() {

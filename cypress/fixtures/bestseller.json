@@ -1,57 +1,93 @@
 [{
-    "name" : "ชุดเม้าส์คีย์บอร์ด",
-    "barcode" : "272882050",
-    "price" : 890,
-    "discount" : 13,
-    "discountPrice" : 770,
+    "name" : "ฟรี แถม อาหารแมวเปียก ดีไลท์ รสทูน่าและปลาโอในเยลลี่ (แพ็ก 12 ชิ้น)",
+    "barcode" : "104098010",
+    "price" : 1390,
+    "discount" : 82,
+    "discountPrice" : 252,
+    "rangePrice" : {
+        "isRange" : false
+    },
     "getAMB" : true,
-    "miniDescription" : [],
+    "miniDescription" : [
+        "อีเลคโทรลักซ์ เครื่องใช้ไฟฟ้าเพื่อการใช้งานในครัวเรือน และเพื่อการใช้งานระดับมืออาชีพ"
+    ],
     "description" : {
         "tableDetails" : [
-            "คละสี",
-            "(กxยxส) 5x45.2x12.2 ซม.",
-            "1.18กก."
+            "22 วัตต์",
+            "ดำ",
+            "(กxยxส) 33x25x18 ซม.",
+            "1.6กก."
         ],
         "detail" : [
-            "- Windows XP, Windows Vista or Windows 7, Windows 8",
-            "- USB port",
-            "- รับประกันฮาร์ดแวร์ 3 ปี",
-            "- Keyboard (K220)",
-            "- Mouse (M150)",
-            "- USB receiver",
-            "- 2 AAA (keyboard) and 2 AA (mouse) batteries",
-            "- User documentation"
+            "ตัวฐานไร้สายหมุนได้ 360 องศา,ปุ่มเปิด ปิดพร้อมไฟแสดงสถานะการทำงาน,",
+            "มีช่องบอกระดับน้ำทั้ง 2 ข้าง,ฝาเปิดปิดง่ายด้วยมือเดียว,ที่กรองสามารถถอดล้างได้",
+            ",มีที่เก็บสายไฟ,ความยาวสายไฟ 100 เซนติเมตร"
         ]
     },
     "type" : "",
     "category" : ""
 },{
-    "name" : "นมเปรี้ยวดีไลท์ ขวด 160",
-    "barcode" : "805847010",
-    "price" : 10,
+    "name" : "ไก่เทอริยากิ1000g. เดลีไทย",
+    "barcode" : "800917010",
+    "price" : 200,
     "discount" : 0,
     "discountPrice" : 0,
+    "rangePrice" : {
+        "isRange" : false
+    },
     "getAMB" : true,
     "miniDescription" : [],
     "description" : {
         "tableDetails" : [],
         "detail" : []
     },
+    "type" : "pre-order",
+    "category" : ""
+},{
+    "name" : "แป้งชุบทอดปรุงสำเร็จ ตรารสดีเมนู 90 ก.",
+    "barcode" : "101833010",
+    "price" : 120,
+    "discount" : 0,
+    "discountPrice" : 0,
+    "rangePrice" : {
+        "isRange" : false
+    },
+    "getAMB" : true,
+    "miniDescription" : [],
+    "description" : {
+        "tableDetails" : [
+            "คละสี",
+            "(กxยxส) 14x15.5x26.5 ซม.",
+            "0.4กก."
+        ],
+        "detail" : [
+            "Style that’s made to last  Made from high-grade aluminum, with rubberized anti-slip feet, the Razer headphone stand is finished in matte black so you enjoy both durability and sleekness.  Space-saving design  Its clean and minimal design will not only complement any desktop, but keep it neat and uncluttered as well.  A perfect fit  Engineered to effortlessly accommodate your Razer headphones, this universally-sized stand will also display other headphones of all sizes."
+        ]
+    },
     "type" : "",
     "category" : ""
 },{
-    "name" : "R-Cool ที่นอน รุ่น DESTINY",
-    "barcode" : "106496010",
-    "price" : 71900,
-    "discount" : 50,
-    "discountPrice" : 35900,
+    "name" : "ไวตามิ้ลค์ข้าวบาร์เล่ย์กล่อง นมถั่วเหลืองUHT 300มิลลิลิตร (ขายยกลัง 36 กล่อง)",
+    "barcode" : "113125010",
+    "price" : 4000,
+    "discount" : 0,
+    "discountPrice" : 0,
+    "rangePrice" : {
+        "isRange" : false
+    },
     "getAMB" : true,
-    "miniDescription" : ["ที่นอน R-Cool รุ่น DESTINY (3.5 ฟุต)Memory Foam แท้ 100% วัตถุดิบนำเข้าจากประเทศเยอรมัน แถมฟรี! Curve Pillow Medium 1 ใบ"],
+    "miniDescription" : [
+        "อิโตะ ช็อกโก ชิพ คุกกี้ ขนาด 163 กรัม (ขนมนำเข้า)",
+        "สินค้านี้ไม่ร่วมคูปองส่วนลดใดๆ"
+    ],
     "description" : {
-        "tableDetails" : [],
+        "tableDetails" : [
+            "(กxยxส) 24x7.5x6.8 ซม.",
+            "0.17กก."
+        ],
         "detail" : [
-            "\"สำหรับออเดอร์ที่ลูกค้าทำการสั่งซื้อหลังวันที่ 10 เมษายน 2562 จะได้รับสินค้าวันที่ 19 เมษายน 2562 เป็นต้นไป\"",
-            "ขนาดสินค้า : 6 ฟุต / 5 ฟุต / 3.5 ฟุต"
+            "- อิโตะ ช็อกโก ชิพ คุกกี้ ขนาด 163 กรัม (ขนมนำเข้า) (แพ๊ค3 ราคาพิเศษ)",
+            "คำที่เกี่ยวข้อง : ยกแพ็ก, ยกลัง, ของกินยกแพ็ก, ของกินยกลัง"
         ]
     },
     "type" : "",

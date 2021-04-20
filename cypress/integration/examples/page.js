@@ -17,12 +17,10 @@ describe('Check each page', () => {
     beforeEach('Login', function() {
         cy.visit('https://integ1.allonline.7eleven.co.th/')
         cy.title().should('eq', '7Online') 
-            // window.localStorage.clear()   
         cy.log('loginUsername : ' + loginUsername)
         cy.log('loginPassword : ' + loginPassword)
         cy.log('username : ' + username)
         cy.login(loginUsername, loginPassword, username)
-            // Cypress.Cookies.preserveOnce('JSESSIONID','i.u.v2','_gid','__utmc','_ga')
     })
 
     afterEach('Logout', function() {
@@ -34,7 +32,7 @@ describe('Check each page', () => {
         var category = coupon.category
         var iscated = false
         var haveCoupon = false
-        it.skip('Coupon Page | Check coupon : ' + code, () => {
+        it('Coupon Page | Check coupon : ' + code, () => {
             cy.get('a[href="/coupon/"]')
                 .should('contain', 'คูปองส่วนลด')
                 .click()
@@ -235,6 +233,7 @@ describe('Check each page', () => {
                     cy.selectProduct(product, size)
     
                 })
+                cy.log('ttttttttttt : ' + type)
                 cy.checkProductDetail(product, type, testType)
             })
         })
@@ -281,7 +280,7 @@ describe('Check each page', () => {
         })
     })
     
-    it.skip('Wish List Page' ,() => {
+    it('Wish List Page' ,() => {
         cy.get('.list-inline > .whishlist-icon > a[href="/account/wishlist/"]')
             .should('contain', 'สินค้าโปรด')
             .click()
@@ -304,18 +303,21 @@ describe('Check each page', () => {
             .click()
         cy.title().should('eq', 'AllOnline')
         cy.url().should('include', '/account/wishlist/')
-            
+
+        var index = 0 
         wishList.forEach((product) => {
-            cy.get('a[title="' + product.name + '"]')
+            cy.get('.item-count').eq(index)
+                .siblings('a')
                 .should('contain', product.name)
                 .parents('.row.item')
                 .find('.price')
                 .should('contain', product.price)
+            index++
         })
     })
 
     getCoupons.forEach((coupon) => {
-        it.skip('Coupon Page | Get coupon : ' + coupon.code, () => {
+        it('Coupon Page | Get coupon : ' + coupon.code, () => {
             cy.get('a[href="/coupon/"]')
                 .should('contain', 'คูปองส่วนลด')
                 .click()
