@@ -1,10 +1,401 @@
 [{
+  "description" : "Purchase order with CS , รับที่เซเว่นอีเลฟเว่น",
+  "customerDetails" : {
+    "customerName" : "อลิสรา ขจรวิทยา",
+    "customerPhone" : "0649343565"
+  },
+  "storeDetails" : {
+    "storeId" : "10888",
+    "storeName" : "เสรีไทย 30",
+    "storeAddress" : "เลขที่  ถ.เสรีไทย, 2/1, แขวงรามอินทรา เขตคันนายาว กรุงเทพฯ 10230"
+  },
+  "searchAddressType" : "store-number",
+  "shippingType" : "รับที่เซเว่นอีเลฟเว่น",
+  "shippingFee" : 0,
+  "taxInvoiceDetails" : {
+    "useTaxInvoice" : "N"
+  },
+  "paymentDetails" : {
+    "paymentType" : "PAYATALL_CS"
+  },
+  "discount" : {
+    "promotion" : {
+      "usePromotion" : false
+    },
+    "amb" : 0,
+    "mstamp" : 0
+  },
+  "products" : [{
+    "name" : "Naturemedica Blue Shark Cartilage กระดูกอ่อนปลาฉลาม บรรจุ 60 แคปซูล",
+    "barcode" : "111159010",
+    "type" : "",
+    "amount" : 2, 
+    "price" : 900,
+    "getAMB" : true,
+    "mstampType" : "N",
+    "isSplit" : "N",
+    "promotion" : {
+      "hasPromotion" : false
+    }
+  },{
+    "name" : "สิงห์ น้ำดื่ม 1500 มิลลิลิตร แพ็ค6ขวด",
+    "barcode" : "104729010",
+    "type" : "",
+    "amount" : 3, 
+    "price" : 94,
+    "getAMB" : true,
+    "mstampType" : "N",
+    "isSplit" : "N",
+    "promotion" : {
+      "hasPromotion" : false
+    }
+  }]
+},{
+  "description" : "Purchase order with TMN , รับที่เซเว่นอีเลฟเว่น",
+  "customerDetails" : {
+    "customerName" : "อลิสรา ขจรวิทยา",
+    "customerPhone" : "0649343565"
+  },
+  "storeDetails" : {
+    "storeId" : "10888",
+    "storeName" : "เสรีไทย 30",
+    "storeAddress" : "เลขที่  ถ.เสรีไทย, 2/1, แขวงรามอินทรา เขตคันนายาว กรุงเทพฯ 10230"
+  },
+  "searchAddressType" : "store-number",
+  "shippingType" : "รับที่เซเว่นอีเลฟเว่น",
+  "shippingFee" : 0,
+  "taxInvoiceDetails" : {
+    "useTaxInvoice" : "N"
+  },
+  "paymentDetails" : {
+    "paymentType" : "PAYATALL_TMN",
+    "phoneNo" : "0070000001",
+    "otp" : "111111"
+  },
+  "discount" : {
+    "promotion" : {
+      "usePromotion" : false
+    },
+    "amb" : 0,
+    "mstamp" : 0
+  },
+  "products" : [{
+    "name" : "Naturemedica Blue Shark Cartilage กระดูกอ่อนปลาฉลาม บรรจุ 60 แคปซูล",
+    "barcode" : "111159010",
+    "type" : "",
+    "amount" : 2, 
+    "price" : 900,
+    "getAMB" : true,
+    "mstampType" : "N",
+    "isSplit" : "N",
+    "promotion" : {
+      "hasPromotion" : false
+    }
+  },{
+    "name" : "สิงห์ น้ำดื่ม 1500 มิลลิลิตร แพ็ค6ขวด",
+    "barcode" : "104729010",
+    "type" : "",
+    "amount" : 3, 
+    "price" : 94,
+    "getAMB" : true,
+    "mstampType" : "N",
+    "isSplit" : "N",
+    "promotion" : {
+      "hasPromotion" : false
+    }
+  }]
+},{
+  "description" : "Purchase order with CC , รับที่เซเว่นอีเลฟเว่น",
+  "customerDetails" : {
+    "customerName" : "อลิสรา ขจรวิทยา",
+    "customerPhone" : "0649343565"
+  },
+  "storeDetails" : {
+    "storeId" : "10888",
+    "storeName" : "เสรีไทย 30",
+    "storeAddress" : "เลขที่  ถ.เสรีไทย, 2/1, แขวงรามอินทรา เขตคันนายาว กรุงเทพฯ 10230"
+  },
+  "searchAddressType" : "store-number",
+  "shippingType" : "รับที่เซเว่นอีเลฟเว่น",
+  "shippingFee" : 0,
+  "splitOrderDetails" : {
+    "splitAddressType" : "addAddr",
+    "customerName" : "อลิสรา ขจรวิทยา",
+    "customerPhone" : "0649343565",
+    "addressNo" : "7/11",
+    "floor" : "12",
+    "moo" : "7",
+    "soi" : "12",
+    "street" : "สิโรรส",
+    "province" : "ยะลา",
+    "district" : "เมืองยะลา",
+    "subDistrict" : "สะเตง",
+    "postalCode" : "95000"
+  },
+  "taxInvoiceDetails" : {
+    "useTaxInvoice" : "N"
+  },
+  "paymentDetails" : {
+    "paymentType" : "PAYATALL_CC",
+    "cardNo" : "5105105105105100",  
+    "expMonth" : "05",
+    "expYear" : "2022",
+    "cvv" : "123",
+    "name" :"Test Payment"
+  },
+  "discount" : {
+    "promotion" : {
+      "usePromotion" : false
+    },
+    "amb" : 0,
+    "mstamp" : 0
+  },
+  "products" : [{
+    "name" : "Naturemedica Blue Shark Cartilage กระดูกอ่อนปลาฉลาม บรรจุ 60 แคปซูล",
+    "barcode" : "111159010",
+    "type" : "",
+    "amount" : 2, 
+    "price" : 900,
+    "getAMB" : true,
+    "mstampType" : "N",
+    "isSplit" : "N",
+    "promotion" : {
+      "hasPromotion" : false
+    }
+  },{
+    "name" : "สิงห์ น้ำดื่ม 1500 มิลลิลิตร แพ็ค6ขวด",
+    "barcode" : "104729010",
+    "type" : "",
+    "amount" : 3, 
+    "price" : 94,
+    "getAMB" : true,
+    "mstampType" : "N",
+    "isSplit" : "N",
+    "promotion" : {
+      "hasPromotion" : false
+    }
+  }]
+},{
+  "description" : "Purchase order with CS , จัดส่งตามที่อยู่",
+  "customerDetails" : {
+    "customerName" : "อลิสรา ขจรวิทยา",
+    "customerPhone" : "0649343565",
+    "addressNo" : "7/11",
+    "floor" : "12",
+    "moo" : "7",
+    "soi" : "11",
+    "street" : "ลาดพร้าว",
+    "province" : "กรุงเทพมหานคร",
+    "district" : "วังทองหลาง",
+    "subDistrict" : "พลับพลา",
+    "postalCode" : "10310"
+  },
+  "storeDetails" : "",
+  "searchAddressType" : "addAddr",
+  "shippingType" : "จัดส่งตามที่อยู่",
+  "shippingFee" : 50,
+  "taxInvoiceDetails" : {
+    "useTaxInvoice" : "N"
+  },
+  "paymentDetails" : {
+    "paymentType" : "PAYATALL_CS"
+  },
+  "discount" : {
+    "promotion" : {
+      "usePromotion" : false
+    },
+    "amb" : 0,
+    "mstamp" : 0
+  },
+  "products" : [{
+    "name" : "Naturemedica Blue Shark Cartilage กระดูกอ่อนปลาฉลาม บรรจุ 60 แคปซูล",
+    "barcode" : "111159010",
+    "type" : "",
+    "amount" : 2, 
+    "price" : 900,
+    "getAMB" : true,
+    "mstampType" : "N",
+    "isSplit" : "N",
+    "promotion" : {
+      "hasPromotion" : false
+    }
+  },{
+    "name" : "สิงห์ น้ำดื่ม 1500 มิลลิลิตร แพ็ค6ขวด",
+    "barcode" : "104729010",
+    "type" : "",
+    "amount" : 3, 
+    "price" : 94,
+    "getAMB" : true,
+    "mstampType" : "N",
+    "isSplit" : "N",
+    "promotion" : {
+      "hasPromotion" : false
+    }
+  }]
+},{
+  "description" : "Purchase order with TMN , จัดส่งตามที่อยู่",
+  "customerDetails" : {
+    "customerName" : "อลิสรา ขจรวิทยา",
+    "customerPhone" : "0649343565",
+    "addressNo" : "7/11",
+    "floor" : "12",
+    "moo" : "7",
+    "soi" : "11",
+    "street" : "ลาดพร้าว",
+    "province" : "กรุงเทพมหานคร",
+    "district" : "วังทองหลาง",
+    "subDistrict" : "พลับพลา",
+    "postalCode" : "10310"
+  },
+  "storeDetails" : {
+    "storeId" : "10888",
+    "storeName" : "เสรีไทย 30",
+    "storeAddress" : "เลขที่  ถ.เสรีไทย, 2/1, แขวงรามอินทรา เขตคันนายาว กรุงเทพฯ 10230"
+  },
+  "searchAddressType" : "addAddr",
+  "shippingType" : "จัดส่งตามที่อยู่",
+  "shippingFee" : 50,
+  "splitOrderDetails" : {
+    "splitAddressType" : "addAddr",
+    "customerName" : "อลิสรา ขจรวิทยา",
+    "customerPhone" : "0649343565",
+    "addressNo" : "7/11",
+    "floor" : "12",
+    "moo" : "7",
+    "soi" : "12",
+    "street" : "สิโรรส",
+    "province" : "ยะลา",
+    "district" : "เมืองยะลา",
+    "subDistrict" : "สะเตง",
+    "postalCode" : "95000"
+  },
+  "taxInvoiceDetails" : {
+    "useTaxInvoice" : "N"
+  },
+  "paymentDetails" : {
+    "paymentType" : "PAYATALL_TMN",
+    "phoneNo" : "0070000001",
+    "otp" : "111111"
+  },
+  "discount" : {
+    "promotion" : {
+      "usePromotion" : false
+    },
+    "amb" : 0,
+    "mstamp" : 0
+  },
+  "products" : [{
+    "name" : "Naturemedica Blue Shark Cartilage กระดูกอ่อนปลาฉลาม บรรจุ 60 แคปซูล",
+    "barcode" : "111159010",
+    "type" : "",
+    "amount" : 2, 
+    "price" : 900,
+    "getAMB" : true,
+    "mstampType" : "N",
+    "isSplit" : "N",
+    "promotion" : {
+      "hasPromotion" : false
+    }
+  },{
+    "name" : "สิงห์ น้ำดื่ม 1500 มิลลิลิตร แพ็ค6ขวด",
+    "barcode" : "104729010",
+    "type" : "",
+    "amount" : 3, 
+    "price" : 94,
+    "getAMB" : true,
+    "mstampType" : "N",
+    "isSplit" : "N",
+    "promotion" : {
+      "hasPromotion" : false
+    }
+  }]
+},{
+  "description" : "Purchase order with CC , จัดส่งตามที่อยู่",
+  "customerDetails" : {
+    "customerName" : "อลิสรา ขจรวิทยา",
+    "customerPhone" : "0649343565",
+    "addressNo" : "7/11",
+    "floor" : "12",
+    "moo" : "7",
+    "soi" : "11",
+    "street" : "ลาดพร้าว",
+    "province" : "กรุงเทพมหานคร",
+    "district" : "วังทองหลาง",
+    "subDistrict" : "พลับพลา",
+    "postalCode" : "10310"
+  },
+  "storeDetails" : {
+    "storeId" : "10888",
+    "storeName" : "เสรีไทย 30",
+    "storeAddress" : "เลขที่  ถ.เสรีไทย, 2/1, แขวงรามอินทรา เขตคันนายาว กรุงเทพฯ 10230"
+  },
+  "searchAddressType" : "addAddr",
+  "shippingType" : "จัดส่งตามที่อยู่",
+  "shippingFee" : 50,
+  "splitOrderDetails" : {
+    "splitAddressType" : "addAddr",
+    "customerName" : "อลิสรา ขจรวิทยา",
+    "customerPhone" : "0649343565",
+    "addressNo" : "7/11",
+    "floor" : "12",
+    "moo" : "7",
+    "soi" : "12",
+    "street" : "สิโรรส",
+    "province" : "ยะลา",
+    "district" : "เมืองยะลา",
+    "subDistrict" : "สะเตง",
+    "postalCode" : "95000"
+  },
+  "taxInvoiceDetails" : {
+    "useTaxInvoice" : "N"
+  },
+  "paymentDetails" : {
+    "paymentType" : "PAYATALL_CC",
+    "cardNo" : "5105105105105100",  
+    "expMonth" : "05",
+    "expYear" : "2022",
+    "cvv" : "123",
+    "name" :"Test Payment"
+  },
+  "discount" : {
+    "promotion" : {
+      "usePromotion" : false
+    },
+    "amb" : 0,
+    "mstamp" : 0
+  },
+  "products" : [{
+    "name" : "Naturemedica Blue Shark Cartilage กระดูกอ่อนปลาฉลาม บรรจุ 60 แคปซูล",
+    "barcode" : "111159010",
+    "type" : "",
+    "amount" : 2, 
+    "price" : 900,
+    "getAMB" : true,
+    "mstampType" : "N",
+    "isSplit" : "N",
+    "promotion" : {
+      "hasPromotion" : false
+    }
+  },{
+    "name" : "สิงห์ น้ำดื่ม 1500 มิลลิลิตร แพ็ค6ขวด",
+    "barcode" : "104729010",
+    "type" : "",
+    "amount" : 3, 
+    "price" : 94,
+    "getAMB" : true,
+    "mstampType" : "N",
+    "isSplit" : "N",
+    "promotion" : {
+      "hasPromotion" : false
+    }
+  }]
+},{
   "description" : "Purchase order with CS, รับที่เซเว่นอีเลฟเว่น, have split order",
   "customerDetails" : {
     "customerName" : "อลิสรา ขจรวิทยา",
     "customerPhone" : "0649343565",
     "addressNo" : "7/11",
-    "floor" : "121",
+    "floor" : "12",
     "moo" : "7",
     "soi" : "11",
     "street" : "ลาดพร้าว",
@@ -81,6 +472,202 @@
     "getAMB" : true,
     "mstampType" : "N",
     "isSplit" : "Y",
+    "promotion" : {
+      "hasPromotion" : false
+    }
+  }]
+},{
+  "description" : "Purchase order with CS, จัดส่งตามที่อยู่, have split order",
+  "customerDetails" : {
+    "customerName" : "อลิสรา ขจรวิทยา",
+    "customerPhone" : "0649343565",
+    "addressNo" : "7/11",
+    "floor" : "12",
+    "moo" : "7",
+    "soi" : "11",
+    "street" : "ลาดพร้าว",
+    "province" : "กรุงเทพมหานคร",
+    "district" : "วังทองหลาง",
+    "subDistrict" : "พลับพลา",
+    "postalCode" : "10310"
+  },
+  "storeDetails" : {
+    "storeId" : "10888",
+    "storeName" : "เสรีไทย 30",
+    "storeAddress" : "เลขที่  ถ.เสรีไทย, 2/1, แขวงรามอินทรา เขตคันนายาว กรุงเทพฯ 10230"
+  },
+  "searchAddressType" : "addAddr",
+  "shippingType" : "จัดส่งตามที่อยู่",
+  "shippingFee" : 50,
+  "splitOrderDetails" : {
+    "splitAddressType" : "addAddr",
+    "customerName" : "อลิสรา ขจรวิทยา",
+    "customerPhone" : "0649343565",
+    "addressNo" : "7/11",
+    "floor" : "12",
+    "moo" : "7",
+    "soi" : "12",
+    "street" : "สิโรรส",
+    "province" : "ยะลา",
+    "district" : "เมืองยะลา",
+    "subDistrict" : "สะเตง",
+    "postalCode" : "95000"
+  },
+  "taxInvoiceDetails" : {
+    "useTaxInvoice" : "N"
+  },
+  "paymentDetails" : {
+    "paymentType" : "PAYATALL_CS"
+  },
+  "discount" : {
+    "promotion" : {
+      "usePromotion" : false
+    },
+    "amb" : 0,
+    "mstamp" : 0
+  },
+  "products" : [{
+    "name" : "Naturemedica Blue Shark Cartilage กระดูกอ่อนปลาฉลาม บรรจุ 60 แคปซูล",
+    "barcode" : "111159010",
+    "type" : "",
+    "amount" : 2, 
+    "price" : 900,
+    "getAMB" : true,
+    "mstampType" : "N",
+    "isSplit" : "N",
+    "promotion" : {
+      "hasPromotion" : false
+    }
+  },{
+    "name" : "สิงห์ น้ำดื่ม 1500 มิลลิลิตร แพ็ค6ขวด",
+    "barcode" : "104729010",
+    "type" : "",
+    "amount" : 3, 
+    "price" : 94,
+    "getAMB" : true,
+    "mstampType" : "N",
+    "isSplit" : "N",
+    "promotion" : {
+      "hasPromotion" : false
+    }
+  },{
+    "name" : "เนสวีต้า รสออริจินอล แพ็ก 6 ซอง",
+    "barcode" : "582766010",
+    "type" : "lemonnes",
+    "amount" : 2, 
+    "price" : 212,
+    "getAMB" : true,
+    "mstampType" : "N",
+    "isSplit" : "Y",
+    "promotion" : {
+      "hasPromotion" : false
+    }
+  }]
+},{
+  "description" : "Purchase order with CS , รับที่เซเว่นอีเลฟเว่น, use 500 AMB points",
+  "customerDetails" : {
+    "customerName" : "อลิสรา ขจรวิทยา",
+    "customerPhone" : "0649343565"
+  },
+  "storeDetails" : {
+    "storeId" : "10888",
+    "storeName" : "เสรีไทย 30",
+    "storeAddress" : "เลขที่  ถ.เสรีไทย, 2/1, แขวงรามอินทรา เขตคันนายาว กรุงเทพฯ 10230"
+  },
+  "searchAddressType" : "store-number",
+  "shippingType" : "รับที่เซเว่นอีเลฟเว่น",
+  "shippingFee" : 0,
+  "taxInvoiceDetails" : {
+    "useTaxInvoice" : "N"
+  },
+  "paymentDetails" : {
+    "paymentType" : "PAYATALL_CS"
+  },
+  "discount" : {
+    "promotion" : {
+      "usePromotion" : false
+    },
+    "amb" : 500,
+    "mstamp" : 0
+  },
+  "products" : [{
+    "name" : "Naturemedica Blue Shark Cartilage กระดูกอ่อนปลาฉลาม บรรจุ 60 แคปซูล",
+    "barcode" : "111159010",
+    "type" : "",
+    "amount" : 2, 
+    "price" : 900,
+    "getAMB" : true,
+    "mstampType" : "N",
+    "isSplit" : "N",
+    "promotion" : {
+      "hasPromotion" : false
+    }
+  },{
+    "name" : "สิงห์ น้ำดื่ม 1500 มิลลิลิตร แพ็ค6ขวด",
+    "barcode" : "104729010",
+    "type" : "",
+    "amount" : 3, 
+    "price" : 94,
+    "getAMB" : true,
+    "mstampType" : "N",
+    "isSplit" : "N",
+    "promotion" : {
+      "hasPromotion" : false
+    }
+  }]
+},{
+  "description" : "Purchase order with CS , จัดส่งตามที่อยู่, use 500 AMB points",
+  "customerDetails" : {
+    "customerName" : "อลิสรา ขจรวิทยา",
+    "customerPhone" : "0649343565",
+    "addressNo" : "7/11",
+    "floor" : "12",
+    "moo" : "7",
+    "soi" : "11",
+    "street" : "ลาดพร้าว",
+    "province" : "กรุงเทพมหานคร",
+    "district" : "วังทองหลาง",
+    "subDistrict" : "พลับพลา",
+    "postalCode" : "10310"
+  },
+  "storeDetails" : "",
+  "searchAddressType" : "addAddr",
+  "shippingType" : "จัดส่งตามที่อยู่",
+  "shippingFee" : 50,
+  "taxInvoiceDetails" : {
+    "useTaxInvoice" : "N"
+  },
+  "paymentDetails" : {
+    "paymentType" : "PAYATALL_CS"
+  },
+  "discount" : {
+    "promotion" : {
+      "usePromotion" : false
+    },
+    "amb" : 500,
+    "mstamp" : 0
+  },
+  "products" : [{
+    "name" : "Naturemedica Blue Shark Cartilage กระดูกอ่อนปลาฉลาม บรรจุ 60 แคปซูล",
+    "barcode" : "111159010",
+    "type" : "",
+    "amount" : 2, 
+    "price" : 900,
+    "getAMB" : true,
+    "mstampType" : "N",
+    "isSplit" : "N",
+    "promotion" : {
+      "hasPromotion" : false
+    }
+  },{
+    "name" : "สิงห์ น้ำดื่ม 1500 มิลลิลิตร แพ็ค6ขวด",
+    "barcode" : "104729010",
+    "type" : "",
+    "amount" : 3, 
+    "price" : 94,
+    "getAMB" : true,
+    "mstampType" : "N",
+    "isSplit" : "N",
     "promotion" : {
       "hasPromotion" : false
     }

@@ -58,29 +58,6 @@ Cypress.Commands.add('clearBasket', () => {
 })
 
 Cypress.Commands.add('addProduct', (product, productPrice) => {
-    //for search input
-    // cy.get('input.header-search', { timeout: 20000 })
-
-    // change this section to cy.searchProduct
-    // cy.get('input.header-search')
-    //     .type(product.barcode)
-    //     .should('have.value', product.barcode)
-    // cy.get('button.search')
-    //     .first()
-    //     .click()
-    // cy.title().should('eq', 'AllOnline')
-
-    // cy.get('div.description').contains(product.name)
-    //     .click()
-
-    // // temp
-    // // cy.contains(productName).click()
-
-    // cy.title().should('eq', product.name + ' | AllOnline')
-    // cy.get('[itemprop="name"]')
-    //     .should('contain', product.name)
-    /////////
-
     cy.get('.currentPrice').should(($currentPrice) => {
         expect($currentPrice).to.contain(productPrice)
     })
@@ -218,28 +195,21 @@ Cypress.Commands.add('verifyShipping', (deliveryType, addrType, customerDetails,
 
 Cypress.Commands.add('verifyOrder', (productName, productBarcode, productList, isSplit, haveSplitOrder) => {
     var index = productList - 1
-    
+    var className = ''
     if (haveSplitOrder) {
         if (isSplit == 'N') {
-            cy.get('.basket-positions-combined-store > .items > .item').eq(index).should(($product) => {
-                expect($product).to.contain('รายการที่ #' + productList)
-                expect($product).to.contain(productName)
-                expect($product).to.contain('โค้ด:' + productBarcode)
-            })
+            className = '.basket-positions-combined-store > .items > .item'
         } else {
-            cy.get('.basket-positions-combined-home > .items > .item').eq(index).should(($product) => {
-                expect($product).to.contain('รายการที่ #' + productList)
-                expect($product).to.contain(productName)
-                expect($product).to.contain('โค้ด:' + productBarcode)
-            })
+            className = '.basket-positions-combined-home > .items > .item'
         } 
     } else {
-            cy.get('.basket-positions-all > .items > .item').eq(index).should(($product) => {
-                expect($product).to.contain('รายการที่ #' + productList)
-                expect($product).to.contain(productName)
-                expect($product).to.contain('โค้ด:' + productBarcode)
-            })
+        className = '.basket-positions-all > .items > .item'
     }   
+    cy.get(className).eq(index).should(($product) => {
+        expect($product).to.contain('รายการที่ #' + productList)
+        expect($product).to.contain(productName)
+        expect($product).to.contain('โค้ด:' + productBarcode)
+    })
 })
 
 Cypress.Commands.add('verifyOrderAtPayment', (product, price, productList) => {
@@ -364,14 +334,16 @@ Cypress.Commands.add('typePromotion', (promotionDetails) => {
     //     .should('contain', promotionDetails.description)
 })
 
-Cypress.Commands.add('discountAMB', (discountAMBPoint, discountAMBBath) => {
+Cypress.Commands.add('discountAMB', (discountAMBPoint) => {
+    cy.get('.discount-of-allmember ')
+        .should('have.class', 'd-none')
     cy.get('input#allpoint-burn')
         .type(discountAMBPoint)
     cy.get('.allmember-burn-section-submit-in-progress-enable')
         .should('have.class', 'active')
         .click()
-    cy.get('#current-amount > .current-discount')
-        .should('contain', 'B ' + discountAMBBath)
+    cy.get('.discount-of-allmember ')
+        .should('not.have.class', 'd-none')
 })
 
 Cypress.Commands.add('discountMstamp',(discountMstamp) => {
@@ -523,8 +495,8 @@ Cypress.Commands.add('checkReceipt', (paymentDetails, username, totalPrice) => {
             break;
         case 'PAYATALL_TMN' : 
             cy.url().should('include', '/paynow')  
+            
             cy.title().should('eq', 'Pay@All OTP Verification')
-
             cy.get('h3.title')
                 .should('contain', 'ยืนยันรหัส OTP')
             cy.get('div.subtitle')
@@ -540,21 +512,28 @@ Cypress.Commands.add('checkReceipt', (paymentDetails, username, totalPrice) => {
                 .should('not.have.attr', 'disabled')
             cy.get('button[type="submit"]')
                 .click()
+
             cy.url().should('include', '/paynow/paymentTmn')
             cy.title().should('eq', 'Pay@All Transaction Summary')
-            cy.get('h3.result-title')
-                .should('contain', 'สำเร็จ')
-            cy.get('ul.transaction-data')
-                .should(($payBill) => {
-                    expect($payBill).to.contain(totalPrice + ' บาท')
-                    expect($payBill).to.contain(paymentDetails.phoneNo)
-                })
-            cy.get('button[type="submit"]')
-                .should('contain', 'กลับสู่หน้าร้านค้า')
-                .click()
-                .wait(2000)
-            cy.url().should('include', '/checkout/confirmation')
-            cy.title().should('eq', 'AllOnline')
+            cy.log('resultttttttttt : ' + Cypress.$('h3.result-title').text())
+            if (Cypress.$('h3.result-title').text().includes('ไม่สำเร็จ')) {
+                throw 'Payment TMW : ไม่สำเร็จ ระบบใช้งานไม่ได้ชั่วคราว'
+            } else {
+                cy.get('h3.result-title')
+                    .should('contain', 'สำเร็จ')
+                cy.get('ul.transaction-data')
+                    .should(($payBill) => {
+                        expect($payBill).to.contain(totalPrice + ' บาท')
+                        expect($payBill).to.contain(paymentDetails.phoneNo)
+                    })
+            
+                cy.get('button[type="submit"]')
+                    .should('contain', 'กลับสู่หน้าร้านค้า')
+                    .click()
+                    .wait(2000)
+                cy.url().should('include', '/checkout/confirmation')
+                cy.title().should('eq', 'AllOnline')
+            }            
             break;
         case 'PAYATALL_CS' : 
             var intDigit = totalPrice.toString().split(".")[0]
@@ -575,7 +554,7 @@ Cypress.Commands.add('checkReceipt', (paymentDetails, username, totalPrice) => {
     
 })
 
-Cypress.Commands.add('checkAMB', (username, ownAMB, amb, earnAMB) => {
+Cypress.Commands.add('checkAMB', (username, amb) => {
     cy.get('a#login-dropdown > span.ellipsis-330')
         .should('contain', username)
         .wait(1000)
@@ -606,14 +585,13 @@ Cypress.Commands.add('checkStatusOrder', (orderNo) => {
     cy.get('input#extOrderNo')
         .should('have.attr', 'placeholder', 'เลขที่สั่งซื้อ')
         .type(orderNo)
-    cy.get('button.btn-proceed')
+    cy.get('button.btn-proceed').contains('ค้นหา')
         .click({force : true})
     
     cy.title().should('eq', 'AllOnline')
     cy.url().should('include', '/account/order-history/')
     cy.get('.order-number-wrapper')
         .should('contain', orderNo)   
-    
 })
 
 // -----------------------------------------------------------------------------------
