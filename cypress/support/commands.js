@@ -437,7 +437,7 @@ Cypress.Commands.add('payment', (paymentDetails) => {
 
     cy.get('button[type="submit"]').contains('สั่งซื้อ')
         .should('not.have.class', 'disabled')
-        .click()
+        .click({force : true})
 
     cy.url().should('include', '/checkout/payment-extern/')
     switch (paymentDetails.paymentType) {
@@ -515,10 +515,14 @@ Cypress.Commands.add('checkReceipt', (paymentDetails, username, totalPrice) => {
 
             cy.url().should('include', '/paynow/paymentTmn')
             cy.title().should('eq', 'Pay@All Transaction Summary')
-            cy.log('resultttttttttt : ' + Cypress.$('h3.result-title').text())
-            if (Cypress.$('h3.result-title').text().includes('ไม่สำเร็จ')) {
-                throw 'Payment TMW : ไม่สำเร็จ ระบบใช้งานไม่ได้ชั่วคราว'
-            } else {
+            cy.get('h3.result-title')
+                .then(($result) => {
+                    var text = $result.text()
+                    cy.log('resultttttttttt : ' + text)
+                    if (text.includes('ไม่สำเร็จ')) {
+                        throw 'Payment TMW : ไม่สำเร็จ ระบบใช้งานไม่ได้ชั่วคราว'
+                    }
+                })
                 cy.get('h3.result-title')
                     .should('contain', 'สำเร็จ')
                 cy.get('ul.transaction-data')
@@ -529,11 +533,10 @@ Cypress.Commands.add('checkReceipt', (paymentDetails, username, totalPrice) => {
             
                 cy.get('button[type="submit"]')
                     .should('contain', 'กลับสู่หน้าร้านค้า')
-                    .click()
+                    .click({force : true})
                     .wait(2000)
                 cy.url().should('include', '/checkout/confirmation')
-                cy.title().should('eq', 'AllOnline')
-            }            
+                cy.title().should('eq', 'AllOnline')    
             break;
         case 'PAYATALL_CS' : 
             var intDigit = totalPrice.toString().split(".")[0]
@@ -576,12 +579,38 @@ Cypress.Commands.add('checkAMB', (username, amb) => {
         .should('contain', formatNumber(amb))
 })
 
-Cypress.Commands.add('checkStatusOrder', (orderNo) => {
-    cy.wait(8000)
+Cypress.Commands.add('openOrderHistory', () => {
     cy.get('a#orderhistory-dropdown')
-        .should('contain', 'ติดตามสถานะการสั่งซื้อ')
-        .click({force : true})
-    cy.wait(5000) 
+    .should('contain', 'ติดตามสถานะการสั่งซื้อ')
+    .then(($orderHistory) => {
+        cy.wrap($orderHistory)
+            .click({force : true})
+        cy.wrap($orderHistory)
+            .parent('li')
+            .invoke('attr', 'class')
+            .then(($att) => {
+                const att = $att
+                if (!att.includes('open')) {
+                    return cy.openOrderHistory()
+                } else if (att.includes('open')) {
+                    cy.wrap($orderHistory)
+                    .parent('li')
+                    .should('have.class', 'open')
+                }
+            })
+    })
+})
+
+Cypress.Commands.add('checkStatusOrder', (orderNo) => {
+    cy.on('uncaught:exception', (err) => {
+        expect(err.message).to.include('something about the error')
+        done()
+        return false
+    })
+
+    cy.openOrderHistory()
+        
+    cy.wait(3000) 
     cy.get('input#extOrderNo')
         .should('have.attr', 'placeholder', 'เลขที่สั่งซื้อ')
         .type(orderNo)
