@@ -77,9 +77,9 @@ describe('Login page', () => {
                 cy.url().should('include', '/coupon/')
 
                 var iscated = false
-                cy.findCoupon(promotion.code, iscated)
+                cy.findCoupon(promotion.id, iscated)
                 cy.checkCoupon(promotion) 
-                cy.getCoupon(promotion.code)
+                cy.getCoupon(promotion.id)
             }
 
             // add product to basket
@@ -278,11 +278,11 @@ describe('Login page', () => {
                 var promotionPrice = 0
                 var haveProducts = false
 
-                if (promotion.productType == '') {
+                if (promotion.type == '') {
                     promotionPrice = orderSum
                 } else {
                     products.forEach((product) => {
-                        if (promotion.productType == product.type) {
+                        if (promotion.type == product.type) {
                             promotionPrice += (product.price * product.amount)
                             haveProducts = true
                         }
@@ -299,7 +299,7 @@ describe('Login page', () => {
                                 discount = promotionPrice
                             }
                             cy.get('tr.line-coupon')
-                                .should('contain', promotion.code.toUpperCase())
+                                .should('contain', promotion.id.toUpperCase())
                             break;
                         case 'fixedAmount' :
                             if (promotionPrice >= promotion.discountAmount) {
@@ -308,13 +308,13 @@ describe('Login page', () => {
                                 discount = promotionPrice
                             }                                
                             cy.get('tr.line-coupon')
-                                .should('contain', promotion.code.toUpperCase())                            
+                                .should('contain', promotion.id.toUpperCase())                            
                             break;
                         case 'freeShipping' : 
                             if (haveProducts == true) {
                                 shippingFee = 0
                                 cy.get('tr.line-coupon')
-                                    .should('contain', promotion.code.toUpperCase())
+                                    .should('contain', promotion.id.toUpperCase())
                             }
                             break; 
                         case 'freeProduct' : 

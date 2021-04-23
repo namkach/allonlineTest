@@ -290,8 +290,8 @@ Cypress.Commands.add('checkPromotion', (promotion) => {
     // } 
 })
 
-Cypress.Commands.add('typePromotion', (promotionDetails) => {
-    switch (promotionDetails.searchType) {
+Cypress.Commands.add('typePromotion', (promotion) => {
+    switch (promotion.searchType) {
         case 'myCoupon' : 
             cy.get('a.lightbox')
                 .should('contain', 'เลือกจาก My coupon')
@@ -299,9 +299,9 @@ Cypress.Commands.add('typePromotion', (promotionDetails) => {
                 .should('not.have.css', 'display', 'none')
 
             cy.get('.select-radio-voucher')
-                .check(promotionDetails.code, {force: true})
+                .check(promotion.id, {force: true})
 
-            // cy.get('input.select-radio-voucher[value="' + promotionDetails.id + '"]')
+            // cy.get('input.select-radio-voucher[value="' + promotion.id + '"]')
             //     .invoke('index').then((i) => {
             //         cy.log('index : ' + i)
             //         cy.get('label[for="s-voucher' + i + '"]')
@@ -309,17 +309,17 @@ Cypress.Commands.add('typePromotion', (promotionDetails) => {
             //     })
 
 
-            // cy.get('input.select-radio-voucher[value="' + promotionDetails.id + '"]').then(($id) => {
+            // cy.get('input.select-radio-voucher[value="' + promotion.id + '"]').then(($id) => {
             //     cy.get('label[for="s-voucher1"]')
             // })
-                // .check('[value="' + promotionDetails.id + '"]')
+                // .check('[value="' + promotion.id + '"]')
             cy.get('button.submit-voucher')
                 .click()
             break;
         case 'typeCoupon' : 
             cy.get('input#promo-code')
                 .wait(1000)
-                .type(promotionDetails.code)
+                .type(promotion.id)
             cy.get('a.redeem-voucher-btn')  
                 .should('contain', 'ใช้รหัสคูปอง')
                 .click()
@@ -329,9 +329,9 @@ Cypress.Commands.add('typePromotion', (promotionDetails) => {
     // cy.wait(2000)
     // cy.get('a.coupon-reset', { timeout: 10000 }).should('be.visible')
     // // cy.get('a.coupon-reset')
-    //     .and('have.attr', 'data-promo-code', promotionDetails.id)
+    //     .and('have.attr', 'data-promo-code', promotion.id)
     // cy.get('ul.promotions')
-    //     .should('contain', promotionDetails.description)
+    //     .should('contain', promotion.description)
 })
 
 Cypress.Commands.add('discountAMB', (discountAMBPoint) => {
@@ -583,6 +583,7 @@ Cypress.Commands.add('openOrderHistory', () => {
     cy.get('a#orderhistory-dropdown')
     .should('contain', 'ติดตามสถานะการสั่งซื้อ')
     .then(($orderHistory) => {
+        cy.wait(3000)
         cy.wrap($orderHistory)
             .click({force : true})
         cy.wrap($orderHistory)

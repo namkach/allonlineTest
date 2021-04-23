@@ -564,7 +564,7 @@
     }
   }]
 },{
-  "description" : "Purchase order with CS , รับที่เซเว่นอีเลฟเว่น, use 500 AMB points",
+  "description" : "Purchase order with TMW , รับที่เซเว่นอีเลฟเว่น, use 500 AMB points",
   "customerDetails" : {
     "customerName" : "อลิสรา ขจรวิทยา",
     "customerPhone" : "0649343565"
@@ -581,7 +581,9 @@
     "useTaxInvoice" : "N"
   },
   "paymentDetails" : {
-    "paymentType" : "PAYATALL_CS"
+    "paymentType" : "PAYATALL_TMN",
+    "phoneNo" : "0070000001",
+    "otp" : "111111"
   },
   "discount" : {
     "promotion" : {
@@ -616,7 +618,7 @@
     }
   }]
 },{
-  "description" : "Purchase order with CS , จัดส่งตามที่อยู่, use 500 AMB points",
+  "description" : "Purchase order with TMW , จัดส่งตามที่อยู่, use 500 AMB points",
   "customerDetails" : {
     "customerName" : "อลิสรา ขจรวิทยา",
     "customerPhone" : "0649343565",
@@ -638,7 +640,9 @@
     "useTaxInvoice" : "N"
   },
   "paymentDetails" : {
-    "paymentType" : "PAYATALL_CS"
+    "paymentType" : "PAYATALL_TMN",
+    "phoneNo" : "0070000001",
+    "otp" : "111111"
   },
   "discount" : {
     "promotion" : {
@@ -667,6 +671,118 @@
     "price" : 94,
     "getAMB" : true,
     "mstampType" : "N",
+    "isSplit" : "N",
+    "promotion" : {
+      "hasPromotion" : false
+    }
+  }]
+},{
+  "description" : "Purchase order with TMN , รับที่เซเว่นอีเลฟเว่น, product w/ promotion",
+  "customerDetails" : {
+    "customerName" : "อลิสรา ขจรวิทยา",
+    "customerPhone" : "0649343565"
+  },
+  "storeDetails" : {
+    "storeId" : "10888",
+    "storeName" : "เสรีไทย 30",
+    "storeAddress" : "เลขที่  ถ.เสรีไทย, 2/1, แขวงรามอินทรา เขตคันนายาว กรุงเทพฯ 10230"
+  },
+  "searchAddressType" : "store-number",
+  "shippingType" : "รับที่เซเว่นอีเลฟเว่น",
+  "shippingFee" : 0,
+  "taxInvoiceDetails" : {
+    "useTaxInvoice" : "N"
+  },
+  "paymentDetails" : {
+    "paymentType" : "PAYATALL_TMN",
+    "phoneNo" : "0070000001",
+    "otp" : "111111"
+  },
+  "discount" : {
+    "promotion" : {
+      "usePromotion" : false
+    },
+    "amb" : 0,
+    "mstamp" : 0
+  },
+  "products" : [{
+    "name" : "สมาร์ทน้ำยาปรับผ้านุ่มม่วง (แพ๊ค3)",
+    "barcode" : "113139010",
+    "type" : "Drinks",
+    "amount" : 8, 
+    "price" : 135,
+    "getAMB" : false,
+    "isSplit" : "N",
+    "promotion" : {
+      "hasPromotion" : true,
+      "type" : "freePerProduct",
+      "name" : "สมาร์ทน้ำยาปรับผ้านุ่มม่วง (แพ๊ค3)",
+      "qty" : 4
+    }
+  },{
+    "name" : "สิงห์ น้ำดื่ม 1500 มิลลิลิตร แพ็ค6ขวด",
+    "barcode" : "104729010",
+    "type" : "",
+    "amount" : 3, 
+    "price" : 94,
+    "getAMB" : true,
+    "mstampType" : "N",
+    "isSplit" : "N",
+    "promotion" : {
+      "hasPromotion" : false
+    }
+  }]
+},{
+  "description" : "Purchase order with TMN , จัดส่งตามที่อยู่, use coupon promotion",
+  "customerDetails" : {
+    "customerName" : "อลิสรา ขจรวิทยา",
+    "customerPhone" : "0649343565",
+    "addressNo" : "7/11",
+    "floor" : "12",
+    "moo" : "7",
+    "soi" : "11",
+    "street" : "ลาดพร้าว",
+    "province" : "กรุงเทพมหานคร",
+    "district" : "วังทองหลาง",
+    "subDistrict" : "พลับพลา",
+    "postalCode" : "10310"
+  },
+  "storeDetails" : "",
+  "searchAddressType" : "existingAddr",
+  "shippingType" : "จัดส่งตามที่อยู่",
+  "shippingFee" : 370,
+  "taxInvoiceDetails" : {
+    "useTaxInvoice" : "N"
+  },
+  "paymentDetails" : {
+    "paymentType" : "PAYATALL_TMN",
+    "phoneNo" : "0070000001",
+    "otp" : "111111"
+  },
+  "discount" : {
+    "promotion" : {
+      "usePromotion" : "Y",
+      "id" : "House3",
+      "description" : "",
+      "searchType" : "typeCoupon",
+      "type" : "House Worth",
+      "discountType" : "freeShipping",
+      "discountAmount" : 0,
+      "minimum" : 0,
+      "maxDiscount" : 0,
+      "freeProduct" : "",
+      "freeQty" : 0
+    },
+    "amb" : 0,
+    "mstamp" : 0
+  },
+  "products" : [{
+    "name" : "House Worth เตาไฟฟ้าหัวคู่ รุ่น HW-HP02",
+    "barcode" : "640534010",
+    "type" : "House Worth",
+    "amount" : 1, 
+    "price" : 1190,
+    "getAMB" : true,
     "isSplit" : "N",
     "promotion" : {
       "hasPromotion" : false
