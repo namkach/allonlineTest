@@ -3,6 +3,12 @@ function formatNumber (number) {
 }
 
 Cypress.Commands.add('login', (loginUsername, loginPassword, username, reLogin = 'N') => {
+    cy.on('uncaught:exception', (err) => {
+        expect(err.message).to.include('something about the error')
+        done()
+        return false
+    })
+
     cy.get('a.allmember-login').contains('เข้าสู่ระบบ | สมัครสมาชิก')
         .wait(2000)
         .click({force : true})
@@ -24,6 +30,12 @@ Cypress.Commands.add('login', (loginUsername, loginPassword, username, reLogin =
 })
 
 Cypress.Commands.add('logout', (username) => {
+    cy.on('uncaught:exception', (err) => {
+        expect(err.message).to.include('something about the error')
+        done()
+        return false
+    })
+
     cy.get('a#login-dropdown > span.ellipsis-330')
         .should('contain', username)
         .click({force : true})
@@ -73,7 +85,7 @@ Cypress.Commands.add('addProduct', (product, productPrice) => {
             .should('contain', 'สินค้านี้ไม่ร่วมโปรโมชั่น ALL member')
     }
 
-    cy.on('uncaught:exception', (err, runnable) => {
+    cy.on('uncaught:exception', (err) => {
         expect(err.message).to.include('something about the error')
         done()
         return false
@@ -230,7 +242,7 @@ Cypress.Commands.add('checkPromotion', (promotion) => {
     // var haveProducts = false
 
     cy.get('a.coupon-reset').should('be.visible')
-        .and('have.attr', 'data-promo-code', promotion.code.toUpperCase())
+        .and('have.attr', 'data-promo-code', promotion.id.toUpperCase())
     if (promotion.description != "") {
         cy.get('ul.promotions')
             .should('contain', promotion.description)
@@ -290,36 +302,39 @@ Cypress.Commands.add('checkPromotion', (promotion) => {
     // } 
 })
 
+Cypress.Commands.add('typeCoupon', (promotionId) => {
+    cy.get('input#promo-code')
+        .type(promotionId)
+    cy.get('input#promo-code')
+        .invoke('val')
+        .then(couponId => {
+            cy.log('couponId  is  :  ' + promotionId)
+            if (!couponId.includes(promotionId)) {
+                cy.get('input#promo-code')
+                    .clear()
+                    cy.typeCoupon(promotionId)
+            }
+        })
+})
+
 Cypress.Commands.add('typePromotion', (promotion) => {
     switch (promotion.searchType) {
         case 'myCoupon' : 
             cy.get('a.lightbox')
                 .should('contain', 'เลือกจาก My coupon')
-                .click()
+                .click({force: true})
                 .should('not.have.css', 'display', 'none')
 
             cy.get('.select-radio-voucher')
                 .check(promotion.id, {force: true})
-
-            // cy.get('input.select-radio-voucher[value="' + promotion.id + '"]')
-            //     .invoke('index').then((i) => {
-            //         cy.log('index : ' + i)
-            //         cy.get('label[for="s-voucher' + i + '"]')
-            //             .click()
-            //     })
-
-
-            // cy.get('input.select-radio-voucher[value="' + promotion.id + '"]').then(($id) => {
-            //     cy.get('label[for="s-voucher1"]')
-            // })
-                // .check('[value="' + promotion.id + '"]')
             cy.get('button.submit-voucher')
                 .click()
             break;
         case 'typeCoupon' : 
-            cy.get('input#promo-code')
-                .wait(1000)
-                .type(promotion.id)
+            // cy.get('input#promo-code')
+            //     .wait(3000)
+            //     .type(promotion.id)
+            cy.typeCoupon(promotion.id)
             cy.get('a.redeem-voucher-btn')  
                 .should('contain', 'ใช้รหัสคูปอง')
                 .click()
@@ -367,15 +382,18 @@ Cypress.Commands.add('verifyTotalPrice', (sum, shippingFee, totalPrice, amb, mst
     if (usePromotion) {
         indexPrice++
     }
-    if (discount > 0) {
+    
         cy.get('#js-invoice-details-tbody > tr').eq(indexPrice) // eq 2
         .should('contain', '฿ ' + shippingFee)
+    if (discount > 0) {
+        cy.log('discountttttttt : ' + discount )
         cy.get('#js-invoice-details-tbody > tr').eq(indexPrice + 1) // eq 3
             .should('contain', formatNumber(discount))
-    } else {
-        cy.get('#js-invoice-details-tbody > tr').eq(indexPrice)
-            .should('contain', '฿ ' + shippingFee)
-    }
+    } 
+    // else {
+    //     cy.get('#js-invoice-details-tbody > tr').eq(indexPrice)
+    //         .should('contain', '฿ ' + shippingFee)
+    // }
 
     if (discountAMB > 0) {
         cy.get('#allmember-discount')
@@ -388,7 +406,7 @@ Cypress.Commands.add('verifyTotalPrice', (sum, shippingFee, totalPrice, amb, mst
     }
 
     cy.get('span#totalAmount')
-    .should('contain', '฿ ' + totalPrice)
+        .should('contain', '฿ ' + totalPrice)
     
     if (amb > 0) {
         cy.get('.line-last > .currency').eq(indexPoint)

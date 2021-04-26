@@ -33,7 +33,7 @@ describe('Login page', () => {
         const paymentDetails = testData.paymentDetails
         const promotion = testData.discount.promotion
         const discountAMBPoint = testData.discount.amb
-        const discountAMBBath = discountAMBPoint / 100
+        var discountAMBBath = parseInt(discountAMBPoint / 100)
         const discountMstamp = testData.discount.mstamp
         const splitOrderDetails = testData.splitOrderDetails
         var shippingFee = testData.shippingFee
@@ -293,7 +293,7 @@ describe('Login page', () => {
                     switch (promotion.discountType) {
                         case 'percentage' : 
                             promotionPrice = parseInt(promotionPrice * (promotion.discountAmount / 100))
-                            if (promotionPrice >= promotion.maxDiscount) {
+                            if (promotion.maxDiscount > 0 && promotionPrice >= promotion.maxDiscount) {
                                 discount = promotion.maxDiscount
                             } else {
                                 discount = promotionPrice
@@ -302,11 +302,14 @@ describe('Login page', () => {
                                 .should('contain', promotion.id.toUpperCase())
                             break;
                         case 'fixedAmount' :
+                            cy.log('promotionPrice : ' + promotionPrice)
+                            cy.log('promotion.discountAmount : ' + promotion.discountAmount)
                             if (promotionPrice >= promotion.discountAmount) {
                                 discount = promotion.discountAmount
                             } else {
                                 discount = promotionPrice
-                            }                                
+                            }
+                            cy.log('discount : ' + discount)                                
                             cy.get('tr.line-coupon')
                                 .should('contain', promotion.id.toUpperCase())                            
                             break;
@@ -344,22 +347,36 @@ describe('Login page', () => {
                     if (promotion.usePromotion && promotion.discountType == 'freeProduct') {
                         freeList++
                     }
-                    cy.get('.items.radio-styled > .show-description').eq(freeList)
-                        .should('contain', product.promotion.name)
-                    switch (product.promotion.productType) {
-                        case 'freePerProduct' : 
-                        // qty = 0
-                        qty = product.amount * product.promotion.qty
-                            cy.get('.items.radio-styled > [align="center"]').eq(freeList)
-                                .should('contain', qty)
-                            break;
-                    }                        
+                    product.promotion.details.forEach((detail) => {
+                        switch (detail.type) {
+                            case 'freePerProduct' : 
+                                cy.get('.items.radio-styled > .show-description').eq(freeList)
+                                    .should('contain', detail.name)
+                                qty = product.amount * detail.qty
+                                cy.get('.items.radio-styled > [align="center"]').eq(freeList)
+                                    .should('contain', qty)
+                                break;
+                            case 'fixedAmount' :
+                                cy.get('.items.radio-styled > .show-description').eq(freeList)
+                                    .should('contain', detail.name)
+                                cy.get('.items.radio-styled > [align="center"]').eq(freeList)
+                                    .should('contain', detail.qty)
+                                break;
+                            case 'amb' : 
+                                amb += detail.qty 
+                                break;
+                            case 'ambPerAmount' :
+                                qty = parseInt(product.amount / detail.amount)
+                                amb += detail.qty * qty
+                        }
+                        freeList++ 
+                    })                       
                 }
             })
 
             sum = formatNumber(orderSum)
             totalPrice = orderSum + shippingFee - discount - discountAMBBath - discountMstamp
-            amb = parseInt((priceAMB - discount - discountAMBBath - discountMstamp) / 10) * 3
+            amb += parseInt((priceAMB - discount - discountAMBBath - discountMstamp) / 10) * 3
 
             mstamp = parseInt((priceMStamp - discount - discountAMBBath - discountMstamp) / 50)
 
@@ -377,7 +394,6 @@ describe('Login page', () => {
                             var orderNo = words[1]
                             cy.wrap(orderNo).as('orderNo')
                         })
-
                     break;
                 case 'PAYATALL_CS' : 
                     cy.contains('เลขที่ใบแจ้งสินค้า/Invoice No:')
