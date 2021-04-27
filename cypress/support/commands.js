@@ -2,7 +2,7 @@ function formatNumber (number) {
     return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
 }
 
-Cypress.Commands.add('login', (loginUsername, loginPassword, username, reLogin = 'N') => {
+Cypress.Commands.add('login', (loginUsername, loginPassword, username, reLogin = false) => {
     cy.on('uncaught:exception', (err) => {
         expect(err.message).to.include('something about the error')
         done()
@@ -13,7 +13,7 @@ Cypress.Commands.add('login', (loginUsername, loginPassword, username, reLogin =
         .wait(2000)
         .click({force : true})
     
-    if (reLogin == 'N') {
+    if (!reLogin) {
         cy.get('input[type="email"]')
             .clear()
             .type(loginUsername, {force: true})
@@ -69,9 +69,9 @@ Cypress.Commands.add('clearBasket', () => {
     })
 })
 
-Cypress.Commands.add('addProduct', (product, productPrice) => {
+Cypress.Commands.add('addProduct', (product) => {
     cy.get('.currentPrice').should(($currentPrice) => {
-        expect($currentPrice).to.contain(productPrice)
+        expect($currentPrice).to.contain(formatNumber(product.price))
     })
 
     cy.get('input[name="order_count"]')
@@ -98,33 +98,35 @@ Cypress.Commands.add('addProduct', (product, productPrice) => {
         .click({force: true})
 })
 
-Cypress.Commands.add('verifyPopUpBasket', (productName, productAmount, productPrice, productList) => {
+Cypress.Commands.add('verifyPopUpBasket', (product, productList) => {
     cy.get('div[class="item"][data-index="' + productList + '"] div.description').should(($product) => {
-        expect($product).to.contain(productName)
+        expect($product).to.contain(product.name)
     })
     
     cy.get('div[class="item"][data-index="' + productList + '"] input[name="order_count"]').should(($product) => {
-        expect($product).to.have.value(productAmount)
+        expect($product).to.have.value(product.amount)
     })
 
+    var price = formatNumber(product.amount * product.price)
     cy.get('div[class="item"][data-index="' + productList + '"] div[class="price"]').should(($product) => {
-        expect($product).to.contain(productPrice)
+        expect($product).to.contain(price)
     })
 })
 
-Cypress.Commands.add('verifyBasket', (productName, productBarcode, productAmount, productPrice, price,  productList) => {
+Cypress.Commands.add('verifyBasket', (product,  productList) => {
     cy.get('.title').should(($product) => {
-        expect($product).to.contain('รายการที่ ' + productList + ' - ' + productBarcode)
-        expect($product).to.contain(productName)
+        expect($product).to.contain('รายการที่ ' + productList + ' - ' + product.barcode)
+        expect($product).to.contain(product.name)
     })
     cy.get('.price').should(($price) => {
-        expect($price).to.contain(productPrice)
+        expect($price).to.contain(formatNumber(product.price))
     })
 
     var index = productList - 1 
     cy.get('input[name="order_count"][data-itemindex="' + index + '"]')
-        .should('have.value', productAmount)
+        .should('have.value', product.amount)
 
+    var price = formatNumber(product.amount * product.price)
     cy.get('.total .highlight').should(($total) => {
         expect($total).to.contain(price)
     })
@@ -189,7 +191,7 @@ Cypress.Commands.add('verifyShipping', (deliveryType, addrType, customerDetails,
             break;   
     }
 
-    if (taxInvoice.useTaxInvoice == "N") {
+    if (!taxInvoice.useTaxInvoice) {
         if (Cypress.$('.tax-invoice-wrappper[style="display: block;"]').length > 0) {
             cy.get('[for="request-tax-invoice-checkbox"]').contains('ขอใบกำกับภาษีเต็มรูปแบบ')
                 .click()
@@ -205,11 +207,11 @@ Cypress.Commands.add('verifyShipping', (deliveryType, addrType, customerDetails,
     }
 })
 
-Cypress.Commands.add('verifyOrder', (productName, productBarcode, productList, isSplit, haveSplitOrder) => {
+Cypress.Commands.add('verifyOrder', (product, productList, haveSplitOrder) => {
     var index = productList - 1
     var className = ''
     if (haveSplitOrder) {
-        if (isSplit == 'N') {
+        if (product.isSplit == 'N') {
             className = '.basket-positions-combined-store > .items > .item'
         } else {
             className = '.basket-positions-combined-home > .items > .item'
@@ -219,18 +221,20 @@ Cypress.Commands.add('verifyOrder', (productName, productBarcode, productList, i
     }   
     cy.get(className).eq(index).should(($product) => {
         expect($product).to.contain('รายการที่ #' + productList)
-        expect($product).to.contain(productName)
-        expect($product).to.contain('โค้ด:' + productBarcode)
+        expect($product).to.contain(product.name)
+        expect($product).to.contain('โค้ด:' + product.barcode)
     })
 })
 
-Cypress.Commands.add('verifyOrderAtPayment', (product, price, productList) => {
+Cypress.Commands.add('verifyOrderAtPayment', (product, productList) => {
     cy.get('tbody:first-child > .items').eq(productList).should(($product) => {
         expect($product).to.contain(product.name)
     })
     cy.get('tbody:first-child > .items > td[align="center"]').eq(productList).should(($amount) => {
         expect($amount).to.contain(product.amount)
     })
+
+    var price = formatNumber(product.amount * product.price)
     cy.get('tbody:first-child > .items > .currency').eq(productList).should(($price) => {
         expect($price).to.contain('฿ ' + price)
     })

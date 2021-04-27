@@ -1,230 +1,71 @@
 [{
-  "description" : "Purchase order with TMN , จัดส่งตามที่อยู่, use coupon promotion percentage",
+  "description" : "Purchase order with CS , รับที่เซเว่นอีเลฟเว่น",
   "customerDetails" : {
     "customerName" : "อลิสรา ขจรวิทยา",
-    "customerPhone" : "0649343565",
-    "addressNo" : "7/11",
-    "floor" : "12",
-    "moo" : "7",
-    "soi" : "11",
-    "street" : "ลาดพร้าว",
-    "province" : "กรุงเทพมหานคร",
-    "district" : "วังทองหลาง",
-    "subDistrict" : "พลับพลา",
-    "postalCode" : "10310"
+    "customerPhone" : "0649343565"
   },
-  "storeDetails" : "",
-  "searchAddressType" : "existingAddr",
-  "shippingType" : "จัดส่งตามที่อยู่",
-  "shippingFee" : 90,
+  "storeDetails" : {
+    "storeId" : "10888",
+    "storeName" : "เสรีไทย 30",
+    "storeAddress" : "เลขที่  ถ.เสรีไทย, 2/1, แขวงรามอินทรา เขตคันนายาว กรุงเทพฯ 10230"
+  },
+  "searchAddressType" : "store-number",
+  "shippingType" : "รับที่เซเว่นอีเลฟเว่น",
+  "shippingFee" : 0,
   "taxInvoiceDetails" : {
-    "useTaxInvoice" : "N"
+    "useTaxInvoice" : false
   },
   "paymentDetails" : {
-    "paymentType" : "PAYATALL_TMN",
-    "phoneNo" : "0070000001",
-    "otp" : "111111"
+    "paymentType" : "PAYATALL_CS"
   },
   "discount" : {
     "promotion" : {
-      "usePromotion" : "Y",
-      "id" : "HOME11",
-      "description" : "ซื้อสินค้า Category ของใช้ในครัวเรือน รับส่วนลด 50% เมื่อซื้อครบ 1,000 บาทขึ้นไป เมื่อกรอก Promo Code",
-      "searchType" : "typeCoupon",
-      "type" : "home",
-      "discountType" : "percentage",
-      "discountAmount" : 50,
-      "minimum" : 0,
-      "maxDiscount" : 0,
-      "freeProduct" : "",
-      "freeQty" : 0
+      "usePromotion" : false
     },
     "amb" : 0,
     "mstamp" : 0
   },
   "products" : [{
-    "name" : "ข้าวหอมมะลิใหม่ 100% ตราฉัตร 5 กิโล",
-    "barcode" : "108450010",
-    "type" : "home",
-    "amount" : 5, 
-    "price" : 265,
-    "getAMB" : true,
-    "isSplit" : "N",
-    "promotion" : {
-      "hasPromotion" : true,
-      "details" : [{
-        "type" : "ambPerAmount",
-        "name" : "",
-        "qty" : 100,
-        "amount" : 2
-      }]
-    }
-  },{
-    "name" : "MICHAEL KORS นาฬิกา รุ่น MK5945",
-    "barcode" : "456342010",
-    "type" : "home",
-    "amount" : 1, 
-    "price" : 3000,
-    "getAMB" : true,
-    "isSplit" : "N",
-    "promotion" : {
-      "hasPromotion" : false
-    }
-  }]
-},{
-  "description" : "Purchase order with TMN , จัดส่งตามที่อยู่, use coupon promotion fixed amount",
-  "customerDetails" : {
-    "customerName" : "อลิสรา ขจรวิทยา",
-    "customerPhone" : "0649343565",
-    "addressNo" : "7/11",
-    "floor" : "12",
-    "moo" : "7",
-    "soi" : "11",
-    "street" : "ลาดพร้าว",
-    "province" : "กรุงเทพมหานคร",
-    "district" : "วังทองหลาง",
-    "subDistrict" : "พลับพลา",
-    "postalCode" : "10310"
-  },
-  "storeDetails" : "",
-  "searchAddressType" : "existingAddr",
-  "shippingType" : "จัดส่งตามที่อยู่",
-  "shippingFee" : 35,
-  "taxInvoiceDetails" : {
-    "useTaxInvoice" : "N"
-  },
-  "paymentDetails" : {
-    "paymentType" : "PAYATALL_TMN",
-    "phoneNo" : "0070000001",
-    "otp" : "111111"
-  },
-  "discount" : {
-    "promotion" : {
-      "usePromotion" : "Y",
-      "id" : "SUPER1",
-      "description" : "เมื่อซื้อสินค้าแว่นกันแดด Super รุ่น 498 Basic Mat Resin หรือ แว่นกันแดด Super รุ่น 359 People Classic เมื่อกรอกโค๊ด Super1 ลด1,000 บาท (430291010,430043010)",
-      "searchType" : "typeCoupon",
-      "type" : "glasses",
-      "discountType" : "fixedAmount",
-      "discountAmount" : 1000,
-      "minimum" : 0,
-      "maxDiscount" : 0,
-      "freeProduct" : "",
-      "freeQty" : 0
-    },
-    "amb" : 0,
-    "mstamp" : 0
-  },
-  "products" : [{
-    "name" : "แว่นกันแดด Super รุ่น 498 Basic Mat Resin",
-    "barcode" : "430291010",
-    "type" : "glasses",
-    "amount" : 1, 
-    "price" : 7000,
-    "getAMB" : true,
-    "isSplit" : "N",
-    "promotion" : {
-      "hasPromotion" : false
-    }
-  },{
-    "name" : "BABITO ชุดฝึกทานอาหารสำหรับเด็ก ช้อน ส้อม มีด",
-    "barcode" : "905537010",
+    "name" : "Naturemedica Blue Shark Cartilage กระดูกอ่อนปลาฉลาม บรรจุ 60 แคปซูล",
+    "barcode" : "111159010",
     "type" : "",
-    "amount" : 2, 
-    "price" : 289,
-    "getAMB" : true,
-    "isSplit" : "N",
-    "promotion" : {
-      "hasPromotion" : false
-    }
-  }]
-},{
-  "description" : "Purchase order with TMN , จัดส่งตามที่อยู่, use coupon promotion free Product",
-  "customerDetails" : {
-    "customerName" : "อลิสรา ขจรวิทยา",
-    "customerPhone" : "0649343565",
-    "addressNo" : "7/11",
-    "floor" : "12",
-    "moo" : "7",
-    "soi" : "11",
-    "street" : "ลาดพร้าว",
-    "province" : "กรุงเทพมหานคร",
-    "district" : "วังทองหลาง",
-    "subDistrict" : "พลับพลา",
-    "postalCode" : "10310"
-  },
-  "storeDetails" : "",
-  "searchAddressType" : "existingAddr",
-  "shippingType" : "จัดส่งตามที่อยู่",
-  "shippingFee" : 135,
-  "taxInvoiceDetails" : {
-    "useTaxInvoice" : "N"
-  },
-  "paymentDetails" : {
-    "paymentType" : "PAYATALL_TMN",
-    "phoneNo" : "0070000001",
-    "otp" : "111111"
-  },
-  "discount" : {
-    "promotion" : {
-      "usePromotion" : true,
-      "id" : "JENNY110",
-      "description" : "",
-      "searchType" : "typeCoupon",
-      "type" : "Jenny",
-      "discountType" : "freeProduct",
-      "discountAmount" : 20,
-      "minimum" : 0,
-      "maxDiscount" : 0,
-      "freeProduct" : "Black Man",
-      "freeQty" : 1
-    },
-    "amb" : 0,
-    "mstamp" : 0
-  },
-  "products" : [{
-    "name" : "Jenny L-Glutathione เจนนี่ แอล-กลูตาไธโอน บรรจุ 30 แคปซูล",
-    "barcode" : "122788010",
-    "type" : "Jenny",
     "amount" : 2, 
     "price" : 900,
     "getAMB" : true,
+    "mstampType" : "N",
     "isSplit" : "N",
     "promotion" : {
-      "hasPromotion" : true,
-      "details" : [{
-        "type" : "fixedAmount",
-        "name" : "Wไฉ่ซิงเอี๊ยยืน (ใหญ่)",
-        "qty" : 1
-      },{
-        "type" : "amb",
-        "name" : "",
-        "qty" : 300
-      }
-      ]      
+      "hasPromotion" : false
+    }
+  },{
+    "name" : "สิงห์ น้ำดื่ม 1500 มิลลิลิตร แพ็ค6ขวด",
+    "barcode" : "104729010",
+    "type" : "",
+    "amount" : 3, 
+    "price" : 94,
+    "getAMB" : true,
+    "mstampType" : "N",
+    "isSplit" : "N",
+    "promotion" : {
+      "hasPromotion" : false
     }
   }]
 },{
-  "description" : "Purchase order with TMN , จัดส่งตามที่อยู่, use coupon promotion free shipping",
+  "description" : "Purchase order with TMN , รับที่เซเว่นอีเลฟเว่น",
   "customerDetails" : {
     "customerName" : "อลิสรา ขจรวิทยา",
-    "customerPhone" : "0649343565",
-    "addressNo" : "7/11",
-    "floor" : "12",
-    "moo" : "7",
-    "soi" : "11",
-    "street" : "ลาดพร้าว",
-    "province" : "กรุงเทพมหานคร",
-    "district" : "วังทองหลาง",
-    "subDistrict" : "พลับพลา",
-    "postalCode" : "10310"
+    "customerPhone" : "0649343565"
   },
-  "storeDetails" : "",
-  "searchAddressType" : "existingAddr",
-  "shippingType" : "จัดส่งตามที่อยู่",
-  "shippingFee" : 370,
+  "storeDetails" : {
+    "storeId" : "10888",
+    "storeName" : "เสรีไทย 30",
+    "storeAddress" : "เลขที่  ถ.เสรีไทย, 2/1, แขวงรามอินทรา เขตคันนายาว กรุงเทพฯ 10230"
+  },
+  "searchAddressType" : "store-number",
+  "shippingType" : "รับที่เซเว่นอีเลฟเว่น",
+  "shippingFee" : 0,
   "taxInvoiceDetails" : {
-    "useTaxInvoice" : "N"
+    "useTaxInvoice" : false
   },
   "paymentDetails" : {
     "paymentType" : "PAYATALL_TMN",
@@ -233,47 +74,105 @@
   },
   "discount" : {
     "promotion" : {
-      "usePromotion" : "Y",
-      "id" : "BEMANFREE",
-      "description" : "",
-      "searchType" : "typeCoupon",
-      "type" : "be man",
-      "discountType" : "freeShipping",
-      "discountAmount" : 0,
-      "minimum" : 0,
-      "maxDiscount" : 0,
-      "freeProduct" : "",
-      "freeQty" : 0
+      "usePromotion" : false
     },
     "amb" : 0,
     "mstamp" : 0
   },
   "products" : [{
-    "name" : "Be Man ป้ายตั้งเตือน ทำความสะอาด BMU 12 สีเหลือง",
-    "barcode" : "968082030",
-    "type" : "be man",
+    "name" : "Naturemedica Blue Shark Cartilage กระดูกอ่อนปลาฉลาม บรรจุ 60 แคปซูล",
+    "barcode" : "111159010",
+    "type" : "",
     "amount" : 2, 
-    "price" : 249,
+    "price" : 900,
     "getAMB" : true,
+    "mstampType" : "N",
     "isSplit" : "N",
     "promotion" : {
       "hasPromotion" : false
     }
   },{
-    "name" : "สมาร์ทน้ำยาปรับผ้านุ่มม่วง (แพ๊ค3)",
-    "barcode" : "113139010",
-    "type" : "Drinks",
-    "amount" : 8, 
-    "price" : 135,
-    "getAMB" : false,
+    "name" : "สิงห์ น้ำดื่ม 1500 มิลลิลิตร แพ็ค6ขวด",
+    "barcode" : "104729010",
+    "type" : "",
+    "amount" : 3, 
+    "price" : 94,
+    "getAMB" : true,
+    "mstampType" : "N",
     "isSplit" : "N",
     "promotion" : {
-      "hasPromotion" : true,
-      "details" : [{
-        "type" : "freePerProduct",
-        "name" : "สมาร์ทน้ำยาปรับผ้านุ่มม่วง (แพ๊ค3)",
-        "qty" : 4
-      }]
+      "hasPromotion" : false
+    }
+  }]
+},{
+  "description" : "Purchase order with CC , รับที่เซเว่นอีเลฟเว่น",
+  "customerDetails" : {
+    "customerName" : "อลิสรา ขจรวิทยา",
+    "customerPhone" : "0649343565"
+  },
+  "storeDetails" : {
+    "storeId" : "10888",
+    "storeName" : "เสรีไทย 30",
+    "storeAddress" : "เลขที่  ถ.เสรีไทย, 2/1, แขวงรามอินทรา เขตคันนายาว กรุงเทพฯ 10230"
+  },
+  "searchAddressType" : "store-number",
+  "shippingType" : "รับที่เซเว่นอีเลฟเว่น",
+  "shippingFee" : 0,
+  "splitOrderDetails" : {
+    "splitAddressType" : "addAddr",
+    "customerName" : "อลิสรา ขจรวิทยา",
+    "customerPhone" : "0649343565",
+    "addressNo" : "7/11",
+    "floor" : "12",
+    "moo" : "7",
+    "soi" : "12",
+    "street" : "สิโรรส",
+    "province" : "ยะลา",
+    "district" : "เมืองยะลา",
+    "subDistrict" : "สะเตง",
+    "postalCode" : "95000"
+  },
+  "taxInvoiceDetails" : {
+    "useTaxInvoice" : false
+  },
+  "paymentDetails" : {
+    "paymentType" : "PAYATALL_CC",
+    "cardNo" : "5105105105105100",  
+    "expMonth" : "05",
+    "expYear" : "2022",
+    "cvv" : "123",
+    "name" :"Test Payment"
+  },
+  "discount" : {
+    "promotion" : {
+      "usePromotion" : false
+    },
+    "amb" : 0,
+    "mstamp" : 0
+  },
+  "products" : [{
+    "name" : "Naturemedica Blue Shark Cartilage กระดูกอ่อนปลาฉลาม บรรจุ 60 แคปซูล",
+    "barcode" : "111159010",
+    "type" : "",
+    "amount" : 2, 
+    "price" : 900,
+    "getAMB" : true,
+    "mstampType" : "N",
+    "isSplit" : "N",
+    "promotion" : {
+      "hasPromotion" : false
+    }
+  },{
+    "name" : "สิงห์ น้ำดื่ม 1500 มิลลิลิตร แพ็ค6ขวด",
+    "barcode" : "104729010",
+    "type" : "",
+    "amount" : 3, 
+    "price" : 94,
+    "getAMB" : true,
+    "mstampType" : "N",
+    "isSplit" : "N",
+    "promotion" : {
+      "hasPromotion" : false
     }
   }]
 }

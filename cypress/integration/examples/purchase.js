@@ -15,6 +15,8 @@ describe('Login page', () => {
     })
 
     afterEach('Logout', function() {
+        cy.visit('/')
+        cy.login(loginUsername, loginPassword, username, true)
         cy.get('a.logo[href="/"]')
             .click({force : true})
         cy.logout(username)
@@ -37,7 +39,7 @@ describe('Login page', () => {
         const discountMstamp = testData.discount.mstamp
         const splitOrderDetails = testData.splitOrderDetails
         var shippingFee = testData.shippingFee
-        const isReLogin = 'Y'
+        const isReLogin = true
         var haveSplitOrder = false
         var customerDetails = ''
         var address = ''
@@ -84,9 +86,8 @@ describe('Login page', () => {
 
             // add product to basket
             products.forEach((product) => {
-                price = formatNumber(product.price)
                 cy.searchProduct(product)
-                cy.addProduct(product, price)
+                cy.addProduct(product)
 
                 cy.wait(1000)
                 qty += product.amount
@@ -139,8 +140,8 @@ describe('Login page', () => {
                     .should('contain', 'ตะกร้าสินค้า')
                     .click()
             products.forEach((product) => {
-                price = formatNumber(product.amount * product.price)
-                cy.verifyPopUpBasket(product.name, product.amount, price, productList)
+                // price = formatNumber(product.amount * product.price)
+                cy.verifyPopUpBasket(product, productList)
                 orderSum += product.amount * product.price
                 productList++
             })
@@ -154,9 +155,9 @@ describe('Login page', () => {
             cy.url().should('include', '/account/basket/')
             productList = 1
             products.forEach((product) => {
-                price = formatNumber(product.amount * product.price)
-                productPrice = formatNumber(product.price)
-                cy.verifyBasket(product.name, product.barcode, product.amount, productPrice, price, productList)
+                // price = formatNumber(product.amount * product.price)
+                // productPrice = formatNumber(product.price)
+                cy.verifyBasket(product, productList)
                 productList++
             }) 
             cy.contains('ดำเนินการชำระเงิน')
@@ -172,10 +173,10 @@ describe('Login page', () => {
             productSplitList = 1
             products.forEach((product) => {
                 if (product.isSplit == 'Y' && haveSplitOrder) {
-                    cy.verifyOrder(product.name, product.barcode, productSplitList, product.isSplit, haveSplitOrder)
+                    cy.verifyOrder(product, productSplitList, haveSplitOrder)
                     productSplitList++
                 } else {
-                    cy.verifyOrder(product.name, product.barcode, productList, product.isSplit, haveSplitOrder)
+                    cy.verifyOrder(product, productList, haveSplitOrder)
                     productList++
                 }                    
             })
@@ -230,12 +231,12 @@ describe('Login page', () => {
             orderSum = 0
             productList = 0
             products.forEach((product) => {
-                price = formatNumber(product.amount * product.price)
+                // price = formatNumber(product.amount * product.price)
                 if (haveSplitOrder && product.isSplit == 'Y') {
-                    cy.verifyOrderAtPayment(product, price, splitOrderAmount)
+                    cy.verifyOrderAtPayment(product, splitOrderAmount)
                     splitOrderAmount++
                 } else {
-                    cy.verifyOrderAtPayment(product, price, productList)
+                    cy.verifyOrderAtPayment(product, productList)
                     productList++
                 }
 
