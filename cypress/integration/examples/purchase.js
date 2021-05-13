@@ -8,11 +8,11 @@ describe('Login page', () => {
         return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",")
     }
 
-    beforeEach('Login', function() {
-        cy.visit('https://integ1.allonline.7eleven.co.th/')
-        cy.title().should('eq', '7Online') 
-        // cy.login(loginUsername, loginPassword, username)
-    })
+    // beforeEach('Login', function() {
+    //     cy.visit('https://integ1.allonline.7eleven.co.th/')
+    //     cy.title().should('eq', '7Online') 
+    //     cy.login(loginUsername, loginPassword, username)
+    // })
 
     // afterEach('Logout', function() {
     //     cy.visit('/')

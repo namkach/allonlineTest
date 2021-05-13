@@ -14,14 +14,14 @@ describe('Check each page', () => {
     var type = ''
     var haveNextPage = false
 
-    beforeEach('Login', function() {
-        cy.visit('https://integ1.allonline.7eleven.co.th/')
-        cy.title().should('eq', '7Online') 
-        // cy.log('loginUsername : ' + loginUsername)
-        // cy.log('loginPassword : ' + loginPassword)
-        // cy.log('username : ' + username)
-        // cy.login(loginUsername, loginPassword, username)
-    })
+    // beforeEach('Login', function() {
+    //     cy.visit('https://integ1.allonline.7eleven.co.th/')
+    //     cy.title().should('eq', '7Online') 
+    //     cy.log('loginUsername : ' + loginUsername)
+    //     cy.log('loginPassword : ' + loginPassword)
+    //     cy.log('username : ' + username)
+    //     cy.login(loginUsername, loginPassword, username)
+    // })
 
     // afterEach('Logout', function() {
     //     cy.logout(username)
