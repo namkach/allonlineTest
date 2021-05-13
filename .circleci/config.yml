@@ -5,15 +5,15 @@ workflows:
   commit-workflow:
     jobs:
       - cypress/run :
-          command: npx cypress run --record --key 8480db50-7215-419a-bf3d-ea79ce325abc
+          command: npx cypress run --record --key 9b2e95d8-e81e-46af-8e02-7aea8d6657c7
   schedule-workflow:
     triggers:
       - schedule:
-          cron: "49 * * * *"
+          cron: "5 * * * *"
           filters:
             branches:
               only:
                 - Laptop
     jobs:
       - cypress/run :
-          command: npx cypress run --record --key 8480db50-7215-419a-bf3d-ea79ce325abc
+          command: npx cypress run --record --key 9b2e95d8-e81e-46af-8e02-7aea8d6657c7
