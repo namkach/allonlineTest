@@ -1,0 +1,71 @@
+[{
+    "name" : "CASIO นาฬิกาข้อมือ รุ่น Digital A158WA-1DF",
+    "barcode" : "853728100",
+    "price" : 7000 ,
+    "discount" : 56,
+    "discountPrice" : 3100,
+    "rangePrice" : {
+        "isRange" : false
+    },
+    "getAMB" : true,
+    "miniDescription" : [
+        "ระบบ Digital",
+        "กันน้ำ 30 เมตร",
+        "ของแท้ 100%"
+    ],
+    "description" : {
+        "tableDetails" : [
+            "แบตเตอรี่ (ถ่าน)",
+            "สายโลหะ (Stainless)",
+            "digital",
+            "30 เมตร",
+            "ทั้งผู้ชายและผู้หญิง",
+            "(กxยxส) 9x12x8 ซม.",
+            "0.2กก."
+        ],
+        "detail" : [
+            "สายโลหะ แข็งแรง ทนทาน",
+            "(สินค้ามีจำนวนจำกัด) เหมาะสำหรับทั้ง ชาย/หญิง"
+        ]
+    },
+    "type" : "",
+    "category" : ""
+},{
+    "name" : "MICHAEL KORS นาฬิกา รุ่น MK5945",
+    "barcode" : "456342010",
+    "price" : 13700,
+    "discount" : 78,
+    "discountPrice" :  3000,
+    "rangePrice" : {
+        "isRange" : false
+    },
+    "getAMB" : true,
+    "miniDescription" : [],
+    "description" : {
+        "tableDetails" : [
+            "แบตเตอรี่ (ถ่าน)",
+            "สายโลหะ (Stainless)",
+            "Analog",
+            "50 เมตร",
+            "ผู้หญิง",
+            "ชมพู,ทอง",
+            "(กxยxส) 12x12x6 ซม.",
+            "0.2กก."
+        ],
+        "detail" : [
+            "แบรนด์ : MICHAEL KORS ของแท้ 100%",
+            "เหมาะสำหรับ : นาฬิกาข้อมือหญิง",
+            "สี : หน้าปัด สี white สาย สี gold",
+            "ขนาด : 36 mm กว้าง x 36 mm ยาว x 10 mm หนา",
+            "น้ำหนัก : -",
+            "ระบบบอกเวลา : Analog หน้าปัด แสดงวันที่",
+            "สาย : Stainless steel",
+            "รอบเรือน : -",
+            "ระดับการกันน้ำ : กันน้ำลึก 50 เมตร",
+            "ในกล่องประกอบ : นาฬิกา,ใบรับประกัน,คู่มือการใช้งาน",
+            "รับประกัน : 2 ปี จาก ศูนย์ไทย"
+        ]
+    },
+    "type" : "",
+    "category" : ""
+}]

@@ -1,0 +1,29 @@
+[{
+    "id" : "Dis60UN",
+    "discountType" : "percentage",
+    "benefit" : "",
+    "description" : "ALM/7Card ซื้อสินค้าครบ 3000 บาท รับ 100 แต้ม",
+    "expire" : "31-05-2021",
+    "category" : ""
+},{
+    "id" : "HBD1000",
+    "discountType" : "free-item",
+    "benefit" : "รับของแถม",
+    "description" : "All member เกิดเดือน April เมื่อซื้อครบ 2000 บาท และ กรอกโค๊ด HBD1000 รับฟรีสินค้า B",
+    "expire" : "",
+    "category" : "UNRESTRICTED_7online"
+},{
+    "id" : "Health2",
+    "discountType" : "free-shipping",
+    "benefit" : "ส่งฟรี",
+    "description" : "เมื่อซื้อสินค้าBarcony Hair Serum Phyto&Pearl 5 ml หรือ O Labo Serum 50ml เมื่อกรอกโค๊ด Health2 จัดส่งฟรี (295640020,533829010)",
+    "expire" : "01-12-2021",
+    "category" : ""
+},{
+    "id" : "PIM500",
+    "discountType" : "fixed-amount",
+    "benefit" : "500",
+    "description" : "ซื้อครบ 9,000 บาท กรอก PIM500 รับส่วนลด 100 บาท  รับ All member Point 500 แต้ม",
+    "expire" : "",
+    "category" : "UNRESTRICTED_7online"
+}]
