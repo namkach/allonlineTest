@@ -23,6 +23,10 @@ describe('Login page', () => {
         cy.logout(username)
     })
 
+    it.only('Test CircleCI : purchase.js', () => {
+        cy.log('Hello world!, this is a CircleCI test for purchase.js')
+    })
+
     testDatas.forEach((testData) => {   
         const customerName = testData.customerDetails.customerName
         const phoneNumber = testData.customerDetails.customerPhone

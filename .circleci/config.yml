@@ -1,0 +1,19 @@
+version: 2.1
+orbs:
+  cypress: cypress-io/cypress@1
+workflows:
+  commit-workflow:
+    jobs:
+      - cypress/run :
+          command: npx cypress run --record --key 8480db50-7215-419a-bf3d-ea79ce325abc
+  schedule-workflow:
+    triggers:
+      - schedule:
+          cron: "49 * * * *"
+          filters:
+            branches:
+              only:
+                - Laptop
+    jobs:
+      - cypress/run :
+          command: npx cypress run --record --key 8480db50-7215-419a-bf3d-ea79ce325abc

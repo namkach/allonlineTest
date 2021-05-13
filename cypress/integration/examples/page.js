@@ -27,6 +27,10 @@ describe('Check each page', () => {
         cy.logout(username)
     })
 
+    it.only('Test CircleCI : pages.js', () => {
+        cy.log('Hello world!, this is a CircleCI test for pages.js')
+    })
+
     coupons.forEach((coupon) => {
         // var code = coupon.id  
         var category = coupon.category
