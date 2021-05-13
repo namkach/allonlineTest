@@ -17,6 +17,7 @@ describe('Login page', () => {
     afterEach('Logout', function() {
         cy.visit('/')
         cy.login(loginUsername, loginPassword, username, true)
+        cy.wait(1000)
         cy.get('a.logo[href="/"]')
             .click({force : true})
         cy.logout(username)
@@ -80,7 +81,7 @@ describe('Login page', () => {
 
                 var iscated = false
                 cy.findCoupon(promotion.id, iscated)
-                cy.checkCoupon(promotion) 
+                // cy.checkCoupon(promotion) 
                 cy.getCoupon(promotion.id)
             }
 
@@ -302,7 +303,7 @@ describe('Login page', () => {
                             cy.get('tr.line-coupon')
                                 .should('contain', promotion.id.toUpperCase())
                             break;
-                        case 'fixedAmount' :
+                        case 'fixed-amount' :
                             cy.log('promotionPrice : ' + promotionPrice)
                             cy.log('promotion.discountAmount : ' + promotion.discountAmount)
                             if (promotionPrice >= promotion.discountAmount) {
@@ -314,20 +315,19 @@ describe('Login page', () => {
                             cy.get('tr.line-coupon')
                                 .should('contain', promotion.id.toUpperCase())                            
                             break;
-                        case 'freeShipping' : 
+                        case 'free-shipping' : 
                             if (haveProducts == true) {
                                 shippingFee = 0
                                 cy.get('tr.line-coupon')
                                     .should('contain', promotion.id.toUpperCase())
                             }
                             break; 
-                        case 'freeProduct' : 
+                        case 'free-item' : 
                             if (haveProducts == true) {
                                 cy.get('#tbody-free-item > .radio-styled > .show-description').first()
                                     .should('contain', promotion.freeProduct)
                                 cy.get('#tbody-free-item > .radio-styled > [align="center"]').first()
                                     .should('contain', promotion.freeQty)
-
                             }
                             break;
                     }
@@ -345,7 +345,7 @@ describe('Login page', () => {
             // check promotion on product
             products.forEach((product) => {
                 if (product.promotion.hasPromotion) {
-                    if (promotion.usePromotion && promotion.discountType == 'freeProduct') {
+                    if (promotion.usePromotion && promotion.discountType == 'free-item') {
                         freeList++
                     }
                     product.promotion.details.forEach((detail) => {

@@ -28,11 +28,11 @@ describe('Check each page', () => {
     })
 
     coupons.forEach((coupon) => {
-        var code = coupon.code  
+        // var code = coupon.id  
         var category = coupon.category
         var iscated = false
         var haveCoupon = false
-        it('Coupon Page | Check coupon : ' + code, () => {
+        it('Coupon Page | Check coupon : ' + coupon.id, () => {
             cy.get('a[href="/coupon/"]')
                 .should('contain', 'คูปองส่วนลด')
                 .click()
@@ -55,7 +55,7 @@ describe('Check each page', () => {
                             switch(attr) {
                                 case 'ALL_7online' :   
                                     try {
-                                        cy.findCoupon(code, iscated)
+                                        cy.findCoupon(coupon.id, iscated)
                                         cy.checkCoupon(coupon)  
                                     } catch (e) {
                                         console.error(e);                                    
@@ -65,7 +65,7 @@ describe('Check each page', () => {
                                     iscated = true
                                     if (category == attr) {
                                         try {
-                                            cy.findCoupon(code, iscated)
+                                            cy.findCoupon(coupon.id, iscated)
                                             cy.checkCoupon(coupon) 
                                         } catch (e) {
                                             console.error(e);                                    
@@ -73,7 +73,7 @@ describe('Check each page', () => {
                                     } else {
                                         haveCoupon = false
                                         try {
-                                            cy.findCoupon(code, iscated, haveCoupon)
+                                            cy.findCoupon(coupon.id, iscated, haveCoupon)
                                         } catch (e) {
                                             console.error(e);                                    
                                         }
@@ -108,7 +108,8 @@ describe('Check each page', () => {
                 cy.selectProduct(product, size)
 
             })
-            cy.checkProductDetail(product, type)
+            // cy.checkProductDetail(product, type)
+            cy.checkProductDetail(product)
         })
     })
 
@@ -149,7 +150,8 @@ describe('Check each page', () => {
                     cy.selectProduct(product, size)
     
                 })
-                cy.checkProductDetail(product, type)
+                // cy.checkProductDetail(product, type)
+                cy.checkProductDetail(product)
             })
         })
     })
@@ -191,7 +193,8 @@ describe('Check each page', () => {
                     cy.selectProduct(product, size)
     
                 })
-                cy.checkProductDetail(product, type)
+                cy.checkProductDetail(product)
+                // cy.checkProductDetail(product, type)
             })            
         })
     })
@@ -231,10 +234,10 @@ describe('Check each page', () => {
                     cy.log('size of elements : ' + size)
                     cy.log('------------------------')
                     cy.selectProduct(product, size)
-    
                 })
                 cy.log('ttttttttttt : ' + type)
-                cy.checkProductDetail(product, type, testType)
+                // cy.checkProductDetail(product, type, testType)                
+                cy.checkProductDetail(product)
             })
         })
     })
@@ -275,7 +278,8 @@ describe('Check each page', () => {
                     cy.selectProduct(product, size)
     
                 })
-                cy.checkProductDetail(product, type)
+                // cy.checkProductDetail(product, type)
+                cy.checkProductDetail(product)
             })
         })
     })
@@ -317,7 +321,7 @@ describe('Check each page', () => {
     })
 
     getCoupons.forEach((coupon) => {
-        it('Coupon Page | Get coupon : ' + coupon.code, () => {
+        it('Coupon Page | Get coupon : ' + coupon.id, () => {
             cy.get('a[href="/coupon/"]')
                 .should('contain', 'คูปองส่วนลด')
                 .click()
@@ -325,10 +329,10 @@ describe('Check each page', () => {
             cy.url().should('include', '/coupon/')
 
             var iscated = false
-            cy.log('promotion.code : ' + coupon.code)
-            cy.findCoupon(coupon.code, iscated)
+            // cy.log('promotion.code : ' + coupon.id)
+            cy.findCoupon(coupon.id, iscated)
             cy.checkCoupon(coupon) 
-            cy.getCoupon(coupon.code)
+            cy.getCoupon(coupon.id)
         })
     })
 })

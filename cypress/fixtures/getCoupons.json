@@ -1,8 +1,8 @@
 [{
-    "code" : "HBD300",
-    "type" : "free-item",
-    "benefit" : "รับของแถม",
-    "description" : "All member เกิดเดือน April เมื่อซื้อครบ 300 บาท และ กรอกโค๊ด HBD300 รับฟรีสินค้า A",
+    "id" : "HBD500",
+    "discountType" : "percentage",
+    "benefit" : "%",
+    "description" : "ALM เกิดเดือน April เมื่อซื้อครบ 5000 บาท และ กรอกโค๊ด HBD500 รับ M-Stamp 100",
     "expire" : "",
     "category" : ""
 }]

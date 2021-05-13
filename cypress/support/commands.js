@@ -36,8 +36,9 @@ Cypress.Commands.add('logout', (username) => {
         return false
     })
 
+    cy.wait(1000)
     cy.get('a#login-dropdown > span.ellipsis-330')
-        .should('contain', username)
+    //     .should('contain', username)
         .click({force : true})
     cy.get('a.allmember-logout.clean')
         .should('contain', 'ออกจากระบบ')
@@ -194,14 +195,14 @@ Cypress.Commands.add('verifyShipping', (deliveryType, addrType, customerDetails,
     if (!taxInvoice.useTaxInvoice) {
         if (Cypress.$('.tax-invoice-wrappper[style="display: block;"]').length > 0) {
             cy.get('[for="request-tax-invoice-checkbox"]').contains('ขอใบกำกับภาษีเต็มรูปแบบ')
-                .click()
+                .click({force : true})
         }
         cy.get('.tax-invoice-wrappper')
             .should('have.attr', 'style', 'display: none;')
     } else {
         if (Cypress.$('.tax-invoice-wrappper[style="display: none;"]').length > 0) {
             cy.get('[for="request-tax-invoice-checkbox"]').contains('ขอใบกำกับภาษีเต็มรูปแบบ')
-            .click()
+            .click({force : true})
         }
         cy.fillTaxInvoice(taxInvoice)
     }
@@ -328,11 +329,11 @@ Cypress.Commands.add('typePromotion', (promotion) => {
                 .should('contain', 'เลือกจาก My coupon')
                 .click({force: true})
                 .should('not.have.css', 'display', 'none')
-
+            cy.wait(3000)
             cy.get('.select-radio-voucher')
                 .check(promotion.id, {force: true})
             cy.get('button.submit-voucher')
-                .click()
+                .click({force: true})
             break;
         case 'typeCoupon' : 
             // cy.get('input#promo-code')
@@ -354,15 +355,16 @@ Cypress.Commands.add('typePromotion', (promotion) => {
 })
 
 Cypress.Commands.add('discountAMB', (discountAMBPoint) => {
-    cy.get('.discount-of-allmember ')
+    cy.get('.discount-of-allmember')
         .should('have.class', 'd-none')
     cy.get('input#allpoint-burn')
         .type(discountAMBPoint)
     cy.get('.allmember-burn-section-submit-in-progress-enable')
         .should('have.class', 'active')
         .click()
-    cy.get('.discount-of-allmember ')
-        .should('not.have.class', 'd-none')
+    var ambBath = parseInt(discountAMBPoint / 100)
+    cy.get('#current-amount')
+        .should('contain', 'B ' + formatNumber(ambBath))
 })
 
 Cypress.Commands.add('discountMstamp',(discountMstamp) => {
@@ -784,16 +786,16 @@ Cypress.Commands.add('fillTaxInvoice', (taxInvoice) => {
 
 // --------------------- || coupon || -------------------------------
 
-Cypress.Commands.add('findCoupon', (code, iscated, haveCoupon = 'Y') => {
+Cypress.Commands.add('findCoupon', (couponId, iscated, haveCoupon = 'Y') => {
     var isFound = false
     cy.get('.code').then(($ele) => {
         for (let i = 0; i < $ele.length; i++) {
             if (iscated && !haveCoupon) {
-                expect($ele.eq(i)).not.to.contain(code)
-            } else if ($ele.eq(i).text().includes(code)){
+                expect($ele.eq(i)).not.to.contain(couponId)
+            } else if ($ele.eq(i).text().includes(couponId)){
                 isFound = true
                 break;
-            }            
+            }
         }
         if(!isFound) {
             cy.get('.next.paging-number').then(() => {
@@ -805,21 +807,20 @@ Cypress.Commands.add('findCoupon', (code, iscated, haveCoupon = 'Y') => {
                         if (!att.includes('disable')) {
                             cy.get('.next.paging-number')
                                 .click({force : true})
-                            return cy.findCoupon(code)
+                            return cy.findCoupon(couponId, iscated)
                         } else if (haveCoupon) {
-                            throw 'Cannot find coupon ' + code
+                            throw 'Cannot find coupon ' + couponId
                         }
                     })
-            })       
+            })
         }
     })
 })
 
 Cypress.Commands.add('checkCoupon', (coupon) => {
-    cy.get('.code').contains(coupon.code)
-    .should('contain', coupon.code)
+    cy.get('.code').contains(coupon.id)
+    .should('contain', coupon.id)
     .parents('.single-voucher').then(($ele) => {
-
         cy.wrap($ele)
             .invoke('attr', 'class')
             .then(($attr) => {
@@ -832,7 +833,11 @@ Cypress.Commands.add('checkCoupon', (coupon) => {
                 } else {
                     cy.wrap($ele).then(($coupon) => {
                         expect($coupon).not.to.have.class('redeemed')
-                        expect($coupon).to.have.class(coupon.type)
+                        if (coupon.discountType == 'fixed-amount') {
+                            expect($coupon).to.have.class('active')
+                        } else {
+                            expect($coupon).to.have.class(coupon.discountType)
+                        }                        
                         expect($coupon).to.contain('รับคูปอง')
                     })
                 }
@@ -856,26 +861,29 @@ Cypress.Commands.add('checkCoupon', (coupon) => {
     }) 
 })
 
-Cypress.Commands.add('getCoupon', (code) => {
-    cy.get('.code').contains(code).then(($coupon) => {
-        cy.wrap($coupon)
-            .parents('.single-voucher')
-            .invoke('attr', 'class')
-            .then(($attr) => {
-                const attr = $attr
-                if (!attr.includes('redeemed')) {
-                    cy.wrap($coupon)
-                        .parents('.single-voucher')
-                        .find('.voucher-claim')
-                        .should('contain', 'รับคูปอง')
-                    cy.wrap($coupon)
-                        .parents('.single-voucher')
-                        .find('.voucher-claim')
-                        .click()
-                        .should('contain', 'เก็บแล้ว')
-                }
-            })
-    })
+Cypress.Commands.add('getCoupon', (couponId) => {
+    cy.get('.code').contains(couponId)
+        .parents('.single-voucher')
+        .then(($coupon) => {
+            cy.wrap($coupon)
+                // .parents('.single-voucher')
+                .invoke('attr', 'class')
+                .then(($attr) => {
+                    const attr = $attr
+                    if (!attr.includes('redeemed')) {
+                        cy.wrap($coupon)
+                            // .parents('.single-voucher')
+                            .find('.voucher-claim')
+                            .should('contain', 'รับคูปอง')
+                        cy.wrap($coupon)
+                            // .parents('.single-voucher')
+                            .find('.voucher-claim > a')
+                            .click({force : true})
+                        cy.wrap($coupon)
+                            .should('contain', 'เก็บแล้ว')
+                    }
+                })
+        })
 })
 
 // --------------------- || page || -------------------------------
@@ -969,7 +977,7 @@ Cypress.Commands.add('findProduct', (product, testType, type, haveNextPage) => {
 })
 
 Cypress.Commands.add('selectProduct', (product, length, index = 0) => {
-    const click = $el => $el.click()
+    // const click = $el => $el.click()
     var isFound = false
     cy.get('.product_grid > .product-item').then(($products) => {
         cy.wrap($products).eq(index)
@@ -997,24 +1005,10 @@ Cypress.Commands.add('selectProduct', (product, length, index = 0) => {
     
 })
 
-Cypress.Commands.add('checkProductDetail', (product, type, testType) => {
+Cypress.Commands.add('checkProductDetail', (product) => {
     var length = 0 
     var index = 0
     
-    switch (type) {
-        case 'flashsale' :
-        case 'pre-order' :
-        case 'new' :
-        case 'bestseller' :
-            cy.get('.js-pdt.pdt-lg > .flag-top-left')
-                .should('have.class', 'flag-' + type)
-            break;
-        case 'promotion' : 
-            cy.get('.js-pdt.pdt-lg').first()
-                .children()
-                .should('not.have.class', 'flag-top-left')
-            break;
-    }
     cy.get('h1[itemprop="name"]')
         .should('contain', product.name)
     cy.get('span[itemprop="sku"]')
