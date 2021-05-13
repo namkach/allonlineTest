@@ -11,17 +11,17 @@ describe('Login page', () => {
     beforeEach('Login', function() {
         cy.visit('https://integ1.allonline.7eleven.co.th/')
         cy.title().should('eq', '7Online') 
-        cy.login(loginUsername, loginPassword, username)
+        // cy.login(loginUsername, loginPassword, username)
     })
 
-    afterEach('Logout', function() {
-        cy.visit('/')
-        cy.login(loginUsername, loginPassword, username, true)
-        cy.wait(1000)
-        cy.get('a.logo[href="/"]')
-            .click({force : true})
-        cy.logout(username)
-    })
+    // afterEach('Logout', function() {
+    //     cy.visit('/')
+    //     cy.login(loginUsername, loginPassword, username, true)
+    //     cy.wait(1000)
+    //     cy.get('a.logo[href="/"]')
+    //         .click({force : true})
+    //     cy.logout(username)
+    // })
 
     it.only('Test CircleCI : purchase.js', () => {
         cy.log('Hello world!, this is a CircleCI test for purchase.js')
