@@ -6,12 +6,12 @@ workflows:
     jobs:
       build : 
         steps : 
-          - run:
-                name: set proxy
-                command: setx HTTPS_PROXY "http://sunitakac:sysbyp@ss4@sbrproxy01.cpall.co.th:8080"
-            - run:
-                name: run test
-                command: npx cypress run
+          run:
+            name: set proxy
+            command: setx HTTPS_PROXY "http://sunitakac:sysbyp@ss4@sbrproxy01.cpall.co.th:8080"
+          run:
+            name: run test
+            command: npx cypress run
 
 
       # - cypress/run :
