@@ -5,9 +5,7 @@ workflows:
   commit-workflow:
     jobs:
       - cypress/run :
-          command: >-
-            setx HTTP_PROXY "http://sunitakac:sysbyp@ss4@sbrproxy01.cpall.co.th:8080" &&
-          npx cypress run
+          command: setx HTTP_PROXY "http://sunitakac:sysbyp@ss4@sbrproxy01.cpall.co.th:8080" && npx cypress run
           # command: npx cypress run --record --key 9b2e95d8-e81e-46af-8e02-7aea8d6657c7
   # schedule-workflow:
   #   triggers:
