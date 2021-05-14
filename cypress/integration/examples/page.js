@@ -16,11 +16,11 @@ describe('Check each page', () => {
 
     beforeEach('Login', function() {
         cy.visit('https://integ1.allonline.7eleven.co.th/')
-    //     cy.title().should('eq', '7Online') 
-    //     cy.log('loginUsername : ' + loginUsername)
-    //     cy.log('loginPassword : ' + loginPassword)
-    //     cy.log('username : ' + username)
-    //     cy.login(loginUsername, loginPassword, username)
+        cy.title().should('eq', '7Online') 
+        cy.log('loginUsername : ' + loginUsername)
+        cy.log('loginPassword : ' + loginPassword)
+        cy.log('username : ' + username)
+        cy.login(loginUsername, loginPassword, username)
     })
 
     // afterEach('Logout', function() {
